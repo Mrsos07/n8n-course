@@ -86,10 +86,11 @@ body {
 }
 
 .brand-logo {
-    max-width: 120px;
+    width: 110px;
+    height: 110px;
     margin: 0 auto 16px;
     display: block;
-    filter: drop-shadow(0 0 15px var(--brand-red-glow));
+    filter: drop-shadow(0 0 18px var(--brand-red-glow));
     animation: floatLogo 4s ease-in-out infinite;
 }
 @keyframes floatLogo {
