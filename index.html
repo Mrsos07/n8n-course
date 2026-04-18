@@ -10,54 +10,21 @@
 </head>
 <body>
 <div class="bg-glow"></div>
-<div class="sidebar">
-  <div class="brand-logo">
-    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
-      <defs>
-        <radialGradient id="glowBg" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#E12533" stop-opacity="0.18"/>
-          <stop offset="100%" stop-color="#E12533" stop-opacity="0"/>
-        </radialGradient>
-        <linearGradient id="nodeGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#E12533"/>
-          <stop offset="100%" stop-color="#a01020"/>
-        </linearGradient>
-        <linearGradient id="nodeGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#ff4455"/>
-          <stop offset="100%" stop-color="#E12533"/>
-        </linearGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
-          <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-      </defs>
-      <!-- Glow background -->
-      <circle cx="60" cy="60" r="56" fill="url(#glowBg)"/>
-      <!-- Outer ring -->
-      <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(225,37,51,0.2)" stroke-width="1"/>
-      <!-- Connection lines -->
-      <line x1="32" y1="60" x2="60" y2="38" stroke="rgba(225,37,51,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <line x1="60" y1="38" x2="88" y2="60" stroke="rgba(225,37,51,0.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <line x1="32" y1="60" x2="60" y2="82" stroke="rgba(225,37,51,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <line x1="60" y1="82" x2="88" y2="60" stroke="rgba(225,37,51,0.25)" stroke-width="1.5" stroke-dasharray="4 3"/>
-      <!-- Left node -->
-      <rect x="18" y="48" width="28" height="24" rx="7" fill="rgba(20,20,22,0.9)" stroke="rgba(225,37,51,0.5)" stroke-width="1.5" filter="url(#glow)"/>
-      <circle cx="32" cy="60" r="5" fill="url(#nodeGrad1)" filter="url(#glow)"/>
-      <!-- Center top node -->
-      <rect x="46" y="24" width="28" height="24" rx="7" fill="rgba(20,20,22,0.9)" stroke="rgba(225,37,51,0.7)" stroke-width="1.5" filter="url(#glow)"/>
-      <text x="60" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="9" font-weight="900" fill="#E12533" letter-spacing="0">n8n</text>
-      <!-- Right node -->
-      <rect x="74" y="48" width="28" height="24" rx="7" fill="rgba(20,20,22,0.9)" stroke="rgba(225,37,51,0.5)" stroke-width="1.5" filter="url(#glow)"/>
-      <circle cx="88" cy="60" r="5" fill="url(#nodeGrad2)" filter="url(#glow)"/>
-      <!-- Bottom node -->
-      <rect x="46" y="70" width="28" height="24" rx="7" fill="rgba(20,20,22,0.9)" stroke="rgba(225,37,51,0.3)" stroke-width="1.5"/>
-      <circle cx="60" cy="82" r="4" fill="rgba(225,37,51,0.5)"/>
-      <!-- Center dot -->
-      <circle cx="60" cy="60" r="3" fill="#E12533" filter="url(#glow)"/>
-      <!-- AI spark -->
-      <path d="M60 50 L62 57 L69 57 L63.5 61.5 L65.5 69 L60 64.5 L54.5 69 L56.5 61.5 L51 57 L58 57 Z" fill="rgba(225,37,51,0.15)" stroke="#E12533" stroke-width="0.8"/>
-    </svg>
+
+<!-- Mobile top bar -->
+<div class="mobile-topbar">
+  <div class="mobile-logo">
+    <img src="logo1.png" alt="n8n">
+    <span>دورة <b>n8n</b></span>
   </div>
+  <button class="hamburger-btn" id="hamburgerBtn" onclick="toggleSidebar()">
+    <span></span><span></span><span></span>
+  </button>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebarMenu()"></div>
+
+<div class="sidebar" id="mainSidebar">
+  <img src="logo1.png" alt="n8n Academy" class="brand-logo">
   <div class="brand-title">دورة أتمتة المهام<span>ووكلاء الذكاء الاصطناعي</span></div>
   <div class="nav-section">مقدمة</div>
   <button class="nav-btn active" onclick="switchTab('tab-intro',this)"><i class="ph-duotone ph-house-line"></i> مقدمة الدورة</button>
@@ -500,6 +467,21 @@
 </div>
 
 <script>
+// ===== HAMBURGER MENU =====
+function toggleSidebar() {
+  const sidebar = document.getElementById("mainSidebar");
+  const overlay = document.getElementById("sidebarOverlay");
+  const btn     = document.getElementById("hamburgerBtn");
+  sidebar.classList.toggle("open");
+  overlay.classList.toggle("visible");
+  btn.classList.toggle("open");
+}
+function closeSidebarMenu() {
+  document.getElementById("mainSidebar").classList.remove("open");
+  document.getElementById("sidebarOverlay").classList.remove("visible");
+  document.getElementById("hamburgerBtn").classList.remove("open");
+}
+
 // ===== TAB SWITCHING =====
 function switchTab(id, btn) {
   document.querySelectorAll(".tab-content").forEach(t => t.classList.remove("active"));
@@ -507,6 +489,7 @@ function switchTab(id, btn) {
   document.getElementById(id).classList.add("active");
   if (btn) btn.classList.add("active");
   window.location.hash = id;
+  closeSidebarMenu();
 }
 
 // ===== INSTALL PANEL SWITCHING =====
