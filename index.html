@@ -65,6 +65,7 @@
   <div class="sidebar-divider"></div>
   <div class="nav-section">أساسيات n8n</div>
   <button class="nav-btn" onclick="switchTab('tab-n8n',this)"><i class="ph-duotone ph-lightning"></i> ما هو n8n؟</button>
+  <button class="nav-btn" onclick="switchTab('tab-install',this)"><i class="ph-duotone ph-download-simple"></i> تثبيت n8n</button>
   <button class="nav-btn" onclick="switchTab('tab-nodes',this)"><i class="ph-duotone ph-circles-four"></i> العقد (Nodes)</button>
   <button class="nav-btn" onclick="switchTab('tab-connections',this)"><i class="ph-duotone ph-arrows-merge"></i> التوصيلات</button>
   <button class="nav-btn" onclick="switchTab('tab-triggers',this)"><i class="ph-duotone ph-play-circle"></i> المحفزات</button>
@@ -314,6 +315,190 @@
   </div>
 </div>
 
+<div id="tab-install" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-download-simple"></i> تثبيت <span>n8n</span></h2>
+  <p class="section-subtitle">ثلاث طرق للبدء مع n8n — اختر الطريقة التي تناسب احتياجك</p>
+
+  <!-- Method tabs -->
+  <div class="install-tabs">
+    <button class="install-tab-btn active" onclick="switchInstall('install-local',this)"><i class="ph-duotone ph-desktop"></i> على جهازك المحلي</button>
+    <button class="install-tab-btn" onclick="switchInstall('install-hostinger',this)"><i class="ph-duotone ph-cloud"></i> سيرفر Hostinger</button>
+    <button class="install-tab-btn" onclick="switchInstall('install-cloud',this)"><i class="ph-duotone ph-user-circle-plus"></i> التسجيل في n8n.cloud</button>
+  </div>
+
+  <!-- LOCAL -->
+  <div id="install-local" class="install-panel active">
+    <div class="install-header glass">
+      <i class="ph-duotone ph-desktop" style="font-size:44px;color:var(--brand-red);filter:drop-shadow(0 0 12px var(--brand-red-glow));"></i>
+      <div>
+        <h3 style="font-size:22px;margin-bottom:6px;">التثبيت على الجهاز المحلي</h3>
+        <p style="color:var(--text-muted);font-size:15px;">مثالي للتجربة والتطوير — يعمل على Windows / Mac / Linux</p>
+      </div>
+    </div>
+    <div class="steps-list" style="margin-top:24px;">
+      <div class="step-item">
+        <div class="step-num">١</div>
+        <div class="step-body">
+          <h4>تثبيت Node.js</h4>
+          <p>قم بتحميل وتثبيت Node.js من الموقع الرسمي. تأكد من النسخة <b>18 أو أعلى</b>.</p>
+          <code>https://nodejs.org</code>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">٢</div>
+        <div class="step-body">
+          <h4>تثبيت n8n عبر npm</h4>
+          <p>افتح الـ Terminal أو Command Prompt ونفّذ الأمر التالي:</p>
+          <code>npm install -g n8n</code>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">٣</div>
+        <div class="step-body">
+          <h4>تشغيل n8n</h4>
+          <p>بعد اكتمال التثبيت، شغّل n8n بالأمر:</p>
+          <code>n8n start</code>
+          <p style="margin-top:8px;">سيفتح المتصفح تلقائياً على العنوان: <code>http://localhost:5678</code></p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">٤</div>
+        <div class="step-body">
+          <h4>إنشاء حساب المدير</h4>
+          <p>في أول تشغيل، ستُطلب منك إنشاء حساب بريد إلكتروني وكلمة مرور. هذا الحساب خاص بجهازك المحلي فقط.</p>
+        </div>
+      </div>
+    </div>
+    <div class="install-tip glass" style="margin-top:24px;">
+      <i class="ph-duotone ph-lightbulb" style="color:#fcd34d;font-size:22px;flex-shrink:0;"></i>
+      <p><b style="color:#fcd34d;">نصيحة:</b> لإبقاء n8n يعمل في الخلفية على Windows استخدم <code>n8n start &</code> أو ثبّته كـ service.</p>
+    </div>
+  </div>
+
+  <!-- HOSTINGER -->
+  <div id="install-hostinger" class="install-panel" style="display:none;">
+    <div class="install-header glass">
+      <i class="ph-duotone ph-cloud" style="font-size:44px;color:var(--brand-red);filter:drop-shadow(0 0 12px var(--brand-red-glow));"></i>
+      <div>
+        <h3 style="font-size:22px;margin-bottom:6px;">التثبيت على سيرفر Hostinger</h3>
+        <p style="color:var(--text-muted);font-size:15px;">للتشغيل المستمر ٢٤/٧ — يحتاج VPS بذاكرة لا تقل عن 1GB RAM</p>
+      </div>
+    </div>
+    <div class="steps-list" style="margin-top:24px;">
+      <div class="step-item">
+        <div class="step-num">١</div>
+        <div class="step-body">
+          <h4>اشترِ VPS من Hostinger</h4>
+          <p>سجّل في <code>hostinger.com</code> واشترِ باقة <b>VPS KVM 1</b> أو أعلى. اختر نظام Ubuntu 22.04.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">٢</div>
+        <div class="step-body">
+          <h4>الاتصال بالسيرفر عبر SSH</h4>
+          <p>استخدم Terminal أو برنامج PuTTY للاتصال:</p>
+          <code>ssh root@YOUR_SERVER_IP</code>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">٣</div>
+        <div class="step-body">
+          <h4>تثبيت Node.js و npm</h4>
+          <code>curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -</code>
+          <br><code style="margin-top:8px;display:inline-block;">sudo apt-get install -y nodejs</code>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">٤</div>
+        <div class="step-body">
+          <h4>تثبيت n8n وتشغيله بـ PM2</h4>
+          <p>PM2 يضمن بقاء n8n يعمل حتى بعد إعادة تشغيل السيرفر:</p>
+          <code>npm install -g n8n pm2</code>
+          <br><code style="margin-top:8px;display:inline-block;">pm2 start n8n --name "n8n"</code>
+          <br><code style="margin-top:8px;display:inline-block;">pm2 save && pm2 startup</code>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">٥</div>
+        <div class="step-body">
+          <h4>إعداد النطاق والـ SSL</h4>
+          <p>اربط النطاق بـ IP السيرفر، ثم ثبّت Nginx كـ Reverse Proxy مع شهادة SSL مجانية عبر Certbot لتصل لـ n8n عبر:</p>
+          <code>https://n8n.yourdomain.com</code>
+        </div>
+      </div>
+    </div>
+    <div class="install-tip glass" style="margin-top:24px;">
+      <i class="ph-duotone ph-warning" style="color:#fb923c;font-size:22px;flex-shrink:0;"></i>
+      <p><b style="color:#fb923c;">مهم:</b> تأكد من فتح المنفذ <code>5678</code> في Firewall السيرفر، أو استخدم Nginx لتوجيه المنفذ 80/443.</p>
+    </div>
+  </div>
+
+  <!-- CLOUD SIGNUP -->
+  <div id="install-cloud" class="install-panel" style="display:none;">
+    <div class="install-header glass">
+      <i class="ph-duotone ph-user-circle-plus" style="font-size:44px;color:var(--brand-red);filter:drop-shadow(0 0 12px var(--brand-red-glow));"></i>
+      <div>
+        <h3 style="font-size:22px;margin-bottom:6px;">التسجيل في n8n.cloud</h3>
+        <p style="color:var(--text-muted);font-size:15px;">أسهل طريقة — بدون سيرفر أو تثبيت، جاهز خلال دقيقة</p>
+      </div>
+    </div>
+    <div class="steps-list" style="margin-top:24px;">
+      <div class="step-item">
+        <div class="step-num">١</div>
+        <div class="step-body">
+          <h4>إنشاء حساب مجاني</h4>
+          <p>اذهب إلى الموقع وسجّل ببريدك الإلكتروني:</p>
+          <code>https://app.n8n.cloud/register</code>
+          <p style="margin-top:8px;">الخطة المجانية تتيح لك <b>5 workflows نشطة</b> و<b>2,500 تنفيذ شهرياً</b>.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">٢</div>
+        <div class="step-body">
+          <h4>تفعيل الحساب</h4>
+          <p>تحقق من بريدك الإلكتروني وانقر على رابط التفعيل. بعدها ستنتقل مباشرة إلى لوحة تحكم n8n الخاصة بك.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">٣</div>
+        <div class="step-body">
+          <h4>اختيار الاشتراك المناسب</h4>
+          <p>n8n.cloud يقدّم ثلاث خطط:</p>
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <div class="pricing-name">Starter</div>
+              <div class="pricing-price">مجاني</div>
+              <div class="pricing-features">5 Workflows نشطة · 2,500 تنفيذ/شهر</div>
+            </div>
+            <div class="pricing-card featured">
+              <div class="pricing-badge">الأكثر شيوعاً</div>
+              <div class="pricing-name">Pro</div>
+              <div class="pricing-price">$20<span>/شهر</span></div>
+              <div class="pricing-features">15 Workflows · 10,000 تنفيذ · دعم أولوية</div>
+            </div>
+            <div class="pricing-card">
+              <div class="pricing-name">Enterprise</div>
+              <div class="pricing-price">مخصص</div>
+              <div class="pricing-features">Workflows غير محدودة · SSO · SLA مضمون</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">٤</div>
+        <div class="step-body">
+          <h4>ابدأ أول Workflow</h4>
+          <p>بعد تسجيل الدخول، انقر <b>"New Workflow"</b> وابدأ الربط فوراً — لا تثبيت، لا إعداد سيرفر.</p>
+        </div>
+      </div>
+    </div>
+    <div class="install-tip glass" style="margin-top:24px;">
+      <i class="ph-duotone ph-lightbulb" style="color:#fcd34d;font-size:22px;flex-shrink:0;"></i>
+      <p><b style="color:#fcd34d;">نصيحة:</b> ابدأ بالخطة المجانية لتعلم n8n، ثم رقّي للـ Pro عندما تحتاج workflows أكثر في مشاريعك الحقيقية.</p>
+    </div>
+  </div>
+</div>
+
 <script>
 // ===== TAB SWITCHING =====
 function switchTab(id, btn) {
@@ -322,6 +507,14 @@ function switchTab(id, btn) {
   document.getElementById(id).classList.add("active");
   if (btn) btn.classList.add("active");
   window.location.hash = id;
+}
+
+// ===== INSTALL PANEL SWITCHING =====
+function switchInstall(id, btn) {
+  document.querySelectorAll(".install-panel").forEach(p => p.style.display = "none");
+  document.querySelectorAll(".install-tab-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById(id).style.display = "block";
+  if (btn) btn.classList.add("active");
 }
 
 // ===== FLIP CARDS =====
