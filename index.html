@@ -1,629 +1,399 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>دورة اتمتة المهام ووكلاء الذكاء الاصطناعي</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دورة أتمتة المهام ووكلاء الذكاء الاصطناعي | n8n Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web"></script>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="bg-glow"></div>
+<div class="sidebar">
+  <img src="logo1.png" alt="n8n Academy" class="brand-logo">
+  <div class="brand-title">دورة أتمتة المهام<span>ووكلاء الذكاء الاصطناعي</span></div>
+  <div class="nav-section">مقدمة</div>
+  <button class="nav-btn active" onclick="switchTab('tab-intro',this)"><i class="ph-duotone ph-house-line"></i> مقدمة الدورة</button>
+  <button class="nav-btn" onclick="switchTab('tab-automation',this)"><i class="ph-duotone ph-gear-six"></i> ما هي الأتمتة؟</button>
+  <div class="sidebar-divider"></div>
+  <div class="nav-section">أساسيات n8n</div>
+  <button class="nav-btn" onclick="switchTab('tab-n8n',this)"><i class="ph-duotone ph-lightning"></i> ما هو n8n؟</button>
+  <button class="nav-btn" onclick="switchTab('tab-nodes',this)"><i class="ph-duotone ph-circles-four"></i> العقد (Nodes)</button>
+  <button class="nav-btn" onclick="switchTab('tab-connections',this)"><i class="ph-duotone ph-arrows-merge"></i> التوصيلات</button>
+  <button class="nav-btn" onclick="switchTab('tab-triggers',this)"><i class="ph-duotone ph-play-circle"></i> المحفزات</button>
+  <button class="nav-btn" onclick="switchTab('tab-expressions',this)"><i class="ph-duotone ph-code"></i> التعبيرات</button>
+  <button class="nav-btn" onclick="switchTab('tab-credentials',this)"><i class="ph-duotone ph-key"></i> الاعتمادات</button>
+  <div class="sidebar-divider"></div>
+  <div class="nav-section">الذكاء الاصطناعي</div>
+  <button class="nav-btn" onclick="switchTab('tab-ai',this)"><i class="ph-duotone ph-brain"></i> AI في n8n</button>
+  <button class="nav-btn" onclick="switchTab('tab-agent',this)"><i class="ph-duotone ph-robot"></i> AI Agent Node</button>
+  <button class="nav-btn" onclick="switchTab('tab-build',this)"><i class="ph-duotone ph-hammer"></i> بناء وكيل AI</button>
+  <div class="sidebar-divider"></div>
+  <div class="nav-section">تطبيقي</div>
+  <button class="nav-btn" onclick="switchTab('tab-examples',this)"><i class="ph-duotone ph-flask"></i> أمثلة حية</button>
+  <button class="nav-btn" onclick="switchTab('tab-quiz',this)"><i class="ph-duotone ph-graduation-cap"></i> الاختبار النهائي</button>
+</div>
+<div class="main-content">
 
-<div class="landing-page" id="landingPage">
-  <section class="hero">
-    <div class="hero-badge"><span class="hero-badge-dot"></span>دورة تعليمية متكاملة · مجانية</div>
-    <h1 class="hero-title">دورة <span class="highlight">اتمتة المهام</span><br>ووكلاء الذكاء الاصطناعي</h1>
-    <p class="hero-subtitle">تعلّم n8n من الصفر — ابنِ سير عمل تلقائية احترافية<br>ووظّف وكلاء الذكاء الاصطناعي في مشاريعك الحقيقية</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="startCourse()"><i class="fas fa-play"></i> ابدأ الدورة الآن</button>
-      <a class="btn-secondary" href="https://docs.n8n.io" target="_blank"><i class="fas fa-book-open"></i> التوثيق الرسمي</a>
+<div id="tab-intro" class="tab-content active">
+  <h2 class="section-title"><i class="ph-duotone ph-rocket-launch"></i> أهلاً بك في دورة <span>أتمتة المهام</span></h2>
+  <p class="section-subtitle">ستتعلم كيف تحوّل المهام المتكررة إلى سير عمل آلية باستخدام n8n، وكيف تبني وكلاء ذكاء اصطناعي يعملون بدلاً عنك.</p>
+  <div class="cards-wrapper">
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="card-front"><i class="ph-duotone ph-clock-clockwise"></i><h3>وفّر وقتك</h3><p>أتمت المهام المتكررة وركّز على ما يهم فعلاً</p></div>
+      <div class="card-back"><h3>الوقت هو أثمن مواردك</h3><p>المهام التي تستغرق ساعات يومياً يمكن أتمتتها في دقائق. <b>n8n يجعل ذلك ممكناً بدون برمجة معقدة.</b></p></div>
     </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">11</div><div class="hero-stat-label">درساً</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">10</div><div class="hero-stat-label">سؤال اختبار</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">2</div><div class="hero-stat-label">مشروع تطبيقي</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">0</div><div class="hero-stat-label">متطلبات</div></div>
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="card-front"><i class="ph-duotone ph-plug"></i><h3>ربط التطبيقات</h3><p>اجعل أدواتك تتحدث مع بعضها تلقائياً</p></div>
+      <div class="card-back"><h3>كل شيء مترابط</h3><p>Gmail مع Sheets مع Slack مع Notion... <b>n8n يوصّل 400+ تطبيق</b> مع بعض دون كتابة كود.</p></div>
     </div>
-  </section>
-  <div class="landing-features">
-    <div class="landing-feature-card"><div class="lfc-icon violet"><i class="fas fa-cogs"></i></div><h3>أتمتة المهام</h3><p>ربط التطبيقات وأتمتة المهام المتكررة بدون كود</p></div>
-    <div class="landing-feature-card"><div class="lfc-icon blue"><i class="fas fa-robot"></i></div><h3>وكلاء AI</h3><p>ابنِ وكلاء ذكاء اصطناعي مع ذاكرة وأدوات متكاملة</p></div>
-    <div class="landing-feature-card"><div class="lfc-icon green"><i class="fas fa-chart-line"></i></div><h3>مشاريع حقيقية</h3><p>طبّق ما تعلّمته في مشاريع عملية من أول يوم</p></div>
-    <div class="landing-feature-card"><div class="lfc-icon amber"><i class="fas fa-unlock-alt"></i></div><h3>مجاني تماماً</h3><p>n8n مفتوح المصدر — استضفه بدون رسوم شهرية</p></div>
-    <div class="landing-feature-card"><div class="lfc-icon rose"><i class="fas fa-tasks"></i></div><h3>اختبار المعرفة</h3><p>أسئلة تفاعلية لقياس مستواك بعد الدورة</p></div>
-    <div class="landing-feature-card"><div class="lfc-icon purple"><i class="fas fa-graduation-cap"></i></div><h3>للمبتدئين</h3><p>لا يلزم خبرة برمجية — كل شيء من الصفر</p></div>
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="card-front"><i class="ph-duotone ph-robot"></i><h3>وكلاء AI</h3><p>ابنِ مساعداً ذكياً يفكر ويتصرف عنك</p></div>
+      <div class="card-back"><h3>الذكاء الاصطناعي في خدمتك</h3><p>وكلاء AI لا يردون فقط، بل <b>يخططون ويتخذون قرارات ويستخدمون أدوات</b> لإنجاز المهام الحقيقية.</p></div>
+    </div>
   </div>
 </div>
 
-<div class="course-app" id="courseApp">
-  <aside class="sidebar" id="sidebar">
-    <div class="sidebar-header">
-      <div class="logo-wrap">
-        <div class="logo-icon"><i class="fas fa-bolt"></i></div>
-        <div><div class="logo-title">n8n Academy</div><div class="logo-sub">دورة الأتمتة والذكاء الاصطناعي</div></div>
-      </div>
-      <button class="sidebar-close" onclick="closeSidebar()"><i class="fas fa-times"></i></button>
-    </div>
-    <div class="sidebar-progress">
-      <div class="progress-label"><span>التقدم</span><span id="progressPercent">0%</span></div>
-      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-    </div>
-    <nav class="sidebar-nav" id="sidebarNav">
-      <div class="nav-section-title">مقدمة</div>
-      <a class="nav-item active" onclick="navigateToLesson('intro')"><div class="nav-icon"><i class="fas fa-home"></i></div><span>مقدمة الدورة</span><span class="nav-badge">1</span></a>
-      <a class="nav-item" onclick="navigateToLesson('automation')"><div class="nav-icon"><i class="fas fa-cogs"></i></div><span>ما هي الأتمتة؟</span><span class="nav-badge">2</span></a>
-      <div class="nav-section-title">أساسيات n8n</div>
-      <a class="nav-item" onclick="navigateToLesson('what-is-n8n')"><div class="nav-icon"><i class="fas fa-bolt"></i></div><span>ما هو n8n؟</span><span class="nav-badge">3</span></a>
-      <a class="nav-item" onclick="navigateToLesson('nodes')"><div class="nav-icon"><i class="fas fa-circle"></i></div><span>العقد (Nodes)</span><span class="nav-badge">4</span></a>
-      <a class="nav-item" onclick="navigateToLesson('connections')"><div class="nav-icon"><i class="fas fa-project-diagram"></i></div><span>التوصيلات</span><span class="nav-badge">5</span></a>
-      <a class="nav-item" onclick="navigateToLesson('triggers')"><div class="nav-icon"><i class="fas fa-bolt"></i></div><span>المحفزات</span><span class="nav-badge">6</span></a>
-      <a class="nav-item" onclick="navigateToLesson('expressions')"><div class="nav-icon"><i class="fas fa-code"></i></div><span>التعبيرات</span><span class="nav-badge">7</span></a>
-      <a class="nav-item" onclick="navigateToLesson('credentials')"><div class="nav-icon"><i class="fas fa-key"></i></div><span>الاعتمادات</span><span class="nav-badge">8</span></a>
-      <div class="nav-section-title">الذكاء الاصطناعي</div>
-      <a class="nav-item" onclick="navigateToLesson('ai-overview')"><div class="nav-icon"><i class="fas fa-brain"></i></div><span>AI في n8n</span><span class="nav-badge">9</span></a>
-      <a class="nav-item" onclick="navigateToLesson('ai-agent')"><div class="nav-icon"><i class="fas fa-robot"></i></div><span>AI Agent Node</span><span class="nav-badge">10</span></a>
-      <a class="nav-item" onclick="navigateToLesson('ai-build')"><div class="nav-icon"><i class="fas fa-hammer"></i></div><span>بناء وكيل AI</span><span class="nav-badge">11</span></a>
-      <div class="nav-section-title">تطبيقي</div>
-      <a class="nav-item" onclick="navigateToLesson('live-examples')"><div class="nav-icon"><i class="fas fa-flask"></i></div><span>أمثلة حية</span><span class="nav-badge">12</span></a>
-      <a class="nav-item" onclick="navigateToLesson('quiz')"><div class="nav-icon"><i class="fas fa-graduation-cap"></i></div><span>الاختبار النهائي</span><span class="nav-badge">اختبار</span></a>
-    </nav>
-    <div class="sidebar-footer">
-      <a class="docs-link" href="https://docs.n8n.io" target="_blank"><i class="fas fa-external-link-alt"></i> الوثائق الرسمية</a>
-    </div>
-  </aside>
-  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
-  <div class="main-wrapper">
-    <header class="topbar">
-      <button class="menu-btn" onclick="openSidebar()"><i class="fas fa-bars"></i></button>
-      <div class="topbar-breadcrumb">الدورة / <span id="currentLessonTitle">مقدمة الدورة</span></div>
-      <div class="topbar-actions">
-        <button class="btn-nav" id="prevBtn" onclick="prevLesson()" disabled><i class="fas fa-chevron-right"></i> السابق</button>
-        <button class="btn-nav primary" id="nextBtn" onclick="nextLesson()">التالي <i class="fas fa-chevron-left"></i></button>
-      </div>
-    </header>
-    <main class="content-area" id="contentArea">
-
-      <section class="lesson active" id="lesson-intro">
-        <div class="lesson-hero gradient-purple">
-          <div class="lesson-hero-icon"><i class="fas fa-home"></i></div>
-          <div><div class="lesson-number">الدرس الأول</div><h1>مرحباً بك في الدورة</h1><p>تعلّم أتمتة المهام وبناء وكلاء الذكاء الاصطناعي باستخدام n8n</p></div>
-        </div>
-        <div class="lesson-body">
-          <h2><i class="fas fa-bullseye"></i> ماذا ستتعلم؟</h2>
-          <div class="lesson-image">
-            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=900&q=80" alt="AI and Automation" onerror="this.parentElement.style.display='none'" />
-            <div class="lesson-image-caption">الذكاء الاصطناعي وأتمتة المهام — مستقبل العمل الرقمي</div>
-          </div>
-          <div class="summary-card">
-            <h3><i class="fas fa-star"></i> ما هذه الدورة؟</h3>
-            <p>دورة عملية متكاملة لتعلّم <strong>n8n</strong> — أداة الأتمتة الأكثر مرونة. ستبني سير عمل تلقائية ووكلاء ذكاء اصطناعي حقيقيين من الصفر.</p>
-          </div>
-          <h2><i class="fas fa-map-signs"></i> خارطة الدورة</h2>
-          <div class="roadmap">
-            <div class="roadmap-item done"><div class="roadmap-dot"><i class="fas fa-check"></i></div><span><strong>الجزء الأول:</strong> مقدمة الأتمتة وما هو n8n</span></div>
-            <div class="roadmap-item"><div class="roadmap-dot">2</div><span><strong>الجزء الثاني:</strong> أساسيات n8n — Nodes، Connections، Triggers</span></div>
-            <div class="roadmap-item"><div class="roadmap-dot">3</div><span><strong>الجزء الثالث:</strong> التعبيرات والاعتمادات</span></div>
-            <div class="roadmap-item"><div class="roadmap-dot">4</div><span><strong>الجزء الرابع:</strong> الذكاء الاصطناعي — AI Agent Node</span></div>
-            <div class="roadmap-item"><div class="roadmap-dot">5</div><span><strong>الجزء الخامس:</strong> بناء وكيل AI حقيقي خطوة بخطوة</span></div>
-            <div class="roadmap-item"><div class="roadmap-dot">6</div><span><strong>الجزء السادس:</strong> أمثلة تطبيقية حية + الاختبار النهائي</span></div>
-          </div>
-          <h2><i class="fas fa-tools"></i> المتطلبات</h2>
-          <ul class="feature-list">
-            <li><i class="fas fa-check-circle"></i><span>حساب n8n Cloud مجاني — <strong>app.n8n.cloud</strong></span></li>
-            <li><i class="fas fa-check-circle"></i><span>متصفح حديث (Chrome أو Edge)</span></li>
-            <li><i class="fas fa-check-circle"></i><span>لا يلزم خبرة برمجية مسبقة</span></li>
-          </ul>
-          <div class="source-ref"><i class="fas fa-link"></i><span>ابدأ مجاناً: <a href="https://app.n8n.cloud" target="_blank">app.n8n.cloud</a></span></div>
-        </div>
-      </section>
-
-      <section class="lesson" id="lesson-automation">
-        <div class="lesson-hero gradient-automation">
-          <div class="lesson-hero-icon"><i class="fas fa-cogs"></i></div>
-          <div><div class="lesson-number">الدرس الثاني</div><h1>ما هي الأتمتة؟</h1><p>فهم مفهوم الأتمتة وأنواعها وتأثيرها على بيئة العمل الحديثة</p></div>
-        </div>
-        <div class="lesson-body">
-          <h2><i class="fas fa-question-circle"></i> تعريف الأتمتة</h2>
-          <div class="lesson-image">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=80" alt="Automation Technology" onerror="this.parentElement.style.display='none'" />
-            <div class="lesson-image-caption">تقنية الأتمتة تحوّل المهام اليدوية إلى عمليات تلقائية</div>
-          </div>
-          <div class="definition-box">
-            <blockquote>الأتمتة هي استخدام التكنولوجيا لإنجاز المهام تلقائياً دون تدخل بشري مستمر.</blockquote>
-            <p>المصدر: <a href="https://docs.n8n.io/courses/level-one/chapter-1/" target="_blank">n8n Documentation</a></p>
-          </div>
-          <div class="analogy-box">
-            <div class="analogy-icon"><i class="fas fa-lightbulb"></i></div>
-            <div><strong>تخيّل موظفاً رقمياً لا ينام:</strong> يستقبل رسائل البريد، يصنّفها، يردّ عليها، يحدّث قاعدة البيانات — كل هذا تلقائياً بينما أنت نائم.</div>
-          </div>
-          <div class="auto-stats-row">
-            <div class="auto-stat"><div class="auto-stat-num">45%</div><div class="auto-stat-label">من المهام قابلة للأتمتة</div></div>
-            <div class="auto-stat"><div class="auto-stat-num">3.7T$</div><div class="auto-stat-label">حجم السوق 2030</div></div>
-            <div class="auto-stat"><div class="auto-stat-num">70%</div><div class="auto-stat-label">توفير الوقت</div></div>
-            <div class="auto-stat"><div class="auto-stat-num">400+</div><div class="auto-stat-label">تطبيق في n8n</div></div>
-          </div>
-          <h2><i class="fas fa-layer-group"></i> أنواع الأتمتة</h2>
-          <div class="auto-types-grid">
-            <div class="auto-type-card"><div class="auto-type-icon"><i class="fas fa-exchange-alt" style="color:#818cf8"></i></div><h4>أتمتة البيانات</h4><p>نقل البيانات ومزامنتها بين التطبيقات تلقائياً</p><span class="auto-example">Sheets ↔ CRM ↔ Slack</span></div>
-            <div class="auto-type-card"><div class="auto-type-icon"><i class="fas fa-envelope-open-text" style="color:#38bdf8"></i></div><h4>أتمتة التواصل</h4><p>إرسال الإشعارات والبريد الإلكتروني تلقائياً</p><span class="auto-example">Gmail → Slack → SMS</span></div>
-            <div class="auto-type-card"><div class="auto-type-icon"><i class="fas fa-chart-bar" style="color:#22d3a5"></i></div><h4>أتمتة التقارير</h4><p>إنشاء التقارير بشكل دوري تلقائي</p><span class="auto-example">تقارير يومية 8 صباحاً</span></div>
-            <div class="auto-type-card"><div class="auto-type-icon"><i class="fas fa-brain" style="color:#a78bfa"></i></div><h4>أتمتة بالذكاء الاصطناعي</h4><p>استخدام AI لمعالجة البيانات واتخاذ القرارات</p><span class="auto-example">GPT-4 + n8n + Webhooks</span></div>
-          </div>
-          <h2><i class="fas fa-stream"></i> كيف تعمل الأتمتة؟</h2>
-          <div class="flow-diagram">
-            <div class="flow-step trigger"><div class="flow-icon"><i class="fas fa-bolt"></i></div><div class="flow-label">المحفز</div><div class="flow-desc">حدث يبدأ سير العمل</div></div>
-            <div class="flow-arrow"><i class="fas fa-chevron-left"></i></div>
-            <div class="flow-step process"><div class="flow-icon"><i class="fas fa-cog"></i></div><div class="flow-label">المعالجة</div><div class="flow-desc">تنفيذ العمليات</div></div>
-            <div class="flow-arrow"><i class="fas fa-chevron-left"></i></div>
-            <div class="flow-step output"><div class="flow-icon"><i class="fas fa-paper-plane"></i></div><div class="flow-label">المخرج</div><div class="flow-desc">النتيجة النهائية</div></div>
-          </div>
-          <div class="source-ref"><i class="fas fa-book"></i><span>المصدر: <a href="https://docs.n8n.io/courses/level-one/" target="_blank">n8n Level One Course</a></span></div>
-        </div>
-      </section>
-
-      <section class="lesson" id="lesson-what-is-n8n">
-        <div class="lesson-hero gradient-blue">
-          <div class="lesson-hero-icon"><i class="fas fa-bolt"></i></div>
-          <div><div class="lesson-number">الدرس الثالث</div><h1>ما هو n8n؟</h1><p>أداة الأتمتة مفتوحة المصدر الأقوى والأكثر مرونة</p></div>
-        </div>
-        <div class="lesson-body">
-          <h2><i class="fas fa-info-circle"></i> تعريف n8n</h2>
-          <div class="lesson-image">
-            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80" alt="n8n workflow automation" onerror="this.parentElement.style.display='none'" />
-            <div class="lesson-image-caption">n8n — منصة الأتمتة التي تجمع آلاف التطبيقات في مكان واحد</div>
-          </div>
-          <div class="definition-box">
-            <blockquote>n8n هو برنامج أتمتة سير العمل مفتوح المصدر يسمح بربط أي تطبيقين وأتمتة المهام بينهما بدون كود.</blockquote>
-            <p>المصدر: <a href="https://docs.n8n.io/hosting/about/" target="_blank">docs.n8n.io</a></p>
-          </div>
-          <h2><i class="fas fa-star"></i> المزايا الرئيسية</h2>
-          <ul class="feature-list">
-            <li><i class="fas fa-check-circle"></i><span><strong>مفتوح المصدر:</strong> استضافة ذاتية مجانية على سيرفرك</span></li>
-            <li><i class="fas fa-check-circle"></i><span><strong>+400 تطبيق:</strong> Google Sheets، Slack، WhatsApp، OpenAI</span></li>
-            <li><i class="fas fa-check-circle"></i><span><strong>واجهة بصرية:</strong> اسحب وأفلت لبناء سير العمل</span></li>
-            <li><i class="fas fa-check-circle"></i><span><strong>دعم AI متكامل:</strong> GPT، Claude، Gemini، Mistral</span></li>
-          </ul>
-          <h2><i class="fas fa-balance-scale"></i> n8n مقارنة بالبدائل</h2>
-          <div class="platform-comparison">
-            <div class="plat-row header"><div>المنصة</div><div>n8n</div><div>Zapier</div><div>Make</div><div>Power Automate</div><div>Activepiece</div></div>
-            <div class="plat-row plat-highlight"><div>مفتوح المصدر</div><div class="plat-yes">✓</div><div class="plat-no">✗</div><div class="plat-no">✗</div><div class="plat-no">✗</div><div class="plat-yes">✓</div></div>
-            <div class="plat-row"><div>دعم AI متقدم</div><div class="plat-yes">✓</div><div class="plat-part">جزئي</div><div class="plat-part">جزئي</div><div class="plat-part">جزئي</div><div class="plat-part">جزئي</div></div>
-            <div class="plat-row"><div>استضافة ذاتية</div><div class="plat-yes">✓</div><div class="plat-no">✗</div><div class="plat-no">✗</div><div class="plat-no">✗</div><div class="plat-yes">✓</div></div>
-          </div>
-          <div class="tip-box"><i class="fas fa-lightbulb"></i><p><strong>نصيحة:</strong> ابدأ بـ <a href="https://app.n8n.cloud" target="_blank" style="color:var(--info)">app.n8n.cloud</a> — الخطة المجانية تمنحك workflows نشطة.</p></div>
-          <div class="source-ref"><i class="fas fa-book"></i><span>المصدر: <a href="https://docs.n8n.io/hosting/about/" target="_blank">docs.n8n.io/hosting/about</a></span></div>
-        </div>
-      </section>
-
-      <section class="lesson" id="lesson-nodes">
-        <div class="lesson-hero gradient-orange">
-          <div class="lesson-hero-icon"><i class="fas fa-circle"></i></div>
-          <div><div class="lesson-number">الدرس الرابع</div><h1>العقد (Nodes)</h1><p>اللبنات الأساسية لبناء أي سير عمل في n8n</p></div>
-        </div>
-        <div class="lesson-body">
-          <h2><i class="fas fa-cube"></i> ما هي العقدة؟</h2>
-          <div class="lesson-image">
-            <img src="https://images.unsplash.com/photo-1545987796-200677720eb7?w=900&q=80" alt="Connected nodes" onerror="this.parentElement.style.display='none'" />
-            <div class="lesson-image-caption">الشبكات المترابطة — كيف تعمل العقد في n8n</div>
-          </div>
-          <div class="definition-box">
-            <blockquote>العقدة (Node) هي وحدة عمل مستقلة تمثّل عملية أو تطبيقاً واحداً. كل عقدة تستقبل بيانات، تعالجها، ثم ترسلها للعقدة التالية.</blockquote>
-          </div>
-          <h2><i class="fas fa-layer-group"></i> أنواع العقد</h2>
-          <div class="type-tabs">
-            <div class="type-card trigger-type">
-              <div class="type-header"><i class="fas fa-bolt"></i> عقد المحفزات (Triggers)</div>
-              <p>تبدأ سير العمل عند حدوث حدث معين — هي دائماً أول عقدة.</p>
-              <div class="type-examples"><span class="tag orange">Webhook</span><span class="tag orange">Schedule</span><span class="tag orange">Email</span><span class="tag orange">Form</span></div>
-            </div>
-            <div class="type-card action-type">
-              <div class="type-header"><i class="fas fa-play-circle"></i> عقد الأفعال (Actions)</div>
-              <p>تنفّذ عمليات على التطبيقات الخارجية أو البيانات الداخلية.</p>
-              <div class="type-examples"><span class="tag blue">Google Sheets</span><span class="tag blue">Slack</span><span class="tag blue">Gmail</span><span class="tag blue">HTTP</span></div>
-            </div>
-          </div>
-          <h2><i class="fas fa-project-diagram"></i> مثال: سير عمل بـ 3 عقد</h2>
-          <div class="n8n-workflow">
-            <div class="n8n-workflow-title">مثال: Webhook → Set → Gmail</div>
-            <div class="n8n-nodes-row">
-              <div class="n8n-node"><div class="n8n-node-badge badge-trigger">Trigger</div><div class="n8n-node-card trigger-node"><div class="n8n-node-icon"><i class="fas fa-bolt"></i></div><div class="n8n-node-name">Webhook</div><div class="n8n-node-desc">يستقبل البيانات</div></div></div>
-              <div class="n8n-connector"><div class="n8n-wire"></div></div>
-              <div class="n8n-node"><div class="n8n-node-badge badge-action">Action</div><div class="n8n-node-card action-node"><div class="n8n-node-icon"><i class="fas fa-cog"></i></div><div class="n8n-node-name">Set</div><div class="n8n-node-desc">يعالج البيانات</div></div></div>
-              <div class="n8n-connector"><div class="n8n-wire"></div></div>
-              <div class="n8n-node"><div class="n8n-node-badge badge-output">Output</div><div class="n8n-node-card output-node"><div class="n8n-node-icon"><i class="fas fa-envelope"></i></div><div class="n8n-node-name">Gmail</div><div class="n8n-node-desc">يرسل البريد</div></div></div>
-            </div>
-          </div>
-          <div class="source-ref"><i class="fas fa-book"></i><span>المصدر: <a href="https://docs.n8n.io/workflows/nodes/" target="_blank">docs.n8n.io/workflows/nodes</a></span></div>
-        </div>
-      </section>
-
-      <section class="lesson" id="lesson-connections">
-        <div class="lesson-hero gradient-teal">
-          <div class="lesson-hero-icon"><i class="fas fa-project-diagram"></i></div>
-          <div><div class="lesson-number">الدرس الخامس</div><h1>التوصيلات (Connections)</h1><p>الأسلاك التي تربط العقد وتنقل البيانات بينها</p></div>
-        </div>
-        <div class="lesson-body">
-          <h2><i class="fas fa-info-circle"></i> ما هي التوصيلة؟</h2>
-          <div class="definition-box">
-            <blockquote>التوصيلة (Connection) هي الرابط البصري بين عقدتين يحدد اتجاه تدفق البيانات من اليمين إلى اليسار في n8n.</blockquote>
-            <p>المصدر: <a href="https://docs.n8n.io/workflows/connections/" target="_blank">docs.n8n.io/workflows/connections</a></p>
-          </div>
-          <h2><i class="fas fa-sitemap"></i> أنواع التوصيلات</h2>
-          <div class="connection-types">
-            <div class="conn-type"><div class="conn-dot success"></div><div><strong>Main Connection</strong><p>خط يحمل البيانات الرئيسية بين العقد — الأكثر استخداماً.</p></div></div>
-            <div class="conn-type"><div class="conn-dot ai"></div><div><strong>AI Tool Connection</strong><p>يربط الأدوات والنماذج بعقدة AI Agent.</p></div></div>
-          </div>
-          <h2><i class="fas fa-code-branch"></i> مثال: توصيل متشعب</h2>
-          <div class="n8n-workflow">
-            <div class="n8n-workflow-title">سير عمل بشرط — True / False</div>
-            <div class="n8n-nodes-row">
-              <div class="n8n-node"><div class="n8n-node-card trigger-node"><div class="n8n-node-icon"><i class="fas fa-bolt"></i></div><div class="n8n-node-name">Webhook</div></div></div>
-              <div class="n8n-connector"><div class="n8n-wire"></div></div>
-              <div class="n8n-node"><div class="n8n-node-card logic-node"><div class="n8n-node-icon"><i class="fas fa-code-branch"></i></div><div class="n8n-node-name">If</div><div class="n8n-node-desc">True / False</div></div></div>
-              <div class="n8n-connector"><div class="n8n-wire"></div></div>
-              <div class="n8n-node"><div class="n8n-node-card output-node"><div class="n8n-node-icon"><i class="fas fa-check"></i></div><div class="n8n-node-name">Slack ✓</div></div></div>
-            </div>
-          </div>
-          <div class="source-ref"><i class="fas fa-book"></i><span>المصدر: <a href="https://docs.n8n.io/workflows/connections/" target="_blank">docs.n8n.io/workflows/connections</a></span></div>
-        </div>
-      </section>
-
-      <section class="lesson" id="lesson-triggers">
-        <div class="lesson-hero gradient-red">
-          <div class="lesson-hero-icon"><i class="fas fa-bolt"></i></div>
-          <div><div class="lesson-number">الدرس السادس</div><h1>المحفزات (Triggers)</h1><p>كيف تبدأ سير العمل — الأحداث التي تطلق الأتمتة</p></div>
-        </div>
-        <div class="lesson-body">
-          <h2><i class="fas fa-info-circle"></i> ما هو المحفز؟</h2>
-          <div class="definition-box">
-            <blockquote>المحفز (Trigger) هو العقدة الأولى في أي سير عمل. وظيفتها: الانتظار حتى يحدث شيء معين ثم إطلاق بقية سير العمل.</blockquote>
-          </div>
-          <h2><i class="fas fa-table"></i> أنواع المحفزات الشائعة</h2>
-          <div class="trigger-table">
-            <div class="trigger-row header"><div>المحفز</div><div>متى يعمل؟</div><div>مثال استخدام</div></div>
-            <div class="trigger-row"><div><strong>Webhook</strong></div><div>عند استقبال طلب HTTP</div><div>ربط نموذج بموقعك</div></div>
-            <div class="trigger-row"><div><strong>Schedule</strong></div><div>في وقت محدد</div><div>تقرير يومي 8 صباحاً</div></div>
-            <div class="trigger-row"><div><strong>n8n Form</strong></div><div>عند إرسال نموذج</div><div>استمارة تسجيل</div></div>
-            <div class="trigger-row"><div><strong>Email Trigger</strong></div><div>عند وصول بريد</div><div>معالجة الطلبات</div></div>
-            <div class="trigger-row"><div><strong>Chat Trigger</strong></div><div>عند إرسال رسالة</div><div>بناء chatbot</div></div>
-          </div>
-          <div class="tip-box"><i class="fas fa-lightbulb"></i><p><strong>قاعدة ذهبية:</strong> كل سير عمل يبدأ بمحفز واحد فقط. إذا احتجت لمحفزات متعددة، انشئ سير عمل منفصل لكل حالة.</p></div>
-          <div class="source-ref"><i class="fas fa-book"></i><span>المصدر: <a href="https://docs.n8n.io/workflows/triggers/" target="_blank">docs.n8n.io/workflows/triggers</a></span></div>
-        </div>
-      </section>
-
-      <section class="lesson" id="lesson-expressions">
-        <div class="lesson-hero gradient-purple">
-          <div class="lesson-hero-icon"><i class="fas fa-code"></i></div>
-          <div><div class="lesson-number">الدرس السابع</div><h1>التعبيرات (Expressions)</h1><p>استخدام البيانات الديناميكية لجعل سير العمل أذكى</p></div>
-        </div>
-        <div class="lesson-body">
-          <h2><i class="fas fa-info-circle"></i> ما هي التعبيرات؟</h2>
-          <div class="definition-box">
-            <blockquote>التعبير (Expression) هو كود JavaScript مختصر يُكتب داخل حقل العقدة لجعل قيمته ديناميكية تتغير بناءً على بيانات العقدة السابقة.</blockquote>
-          </div>
-          <div class="analogy-box">
-            <div class="analogy-icon"><i class="fas fa-lightbulb"></i></div>
-            <div>بدلاً من كتابة <strong>"مرحباً محمد"</strong> يدوياً، تكتب تعبيراً فيصبح الاسم تلقائياً من البيانات القادمة.</div>
-          </div>
-          <h2><i class="fas fa-terminal"></i> أمثلة على التعبيرات</h2>
-          <div class="code-examples">
-            <div class="code-block"><div class="code-title">الوصول للبيانات</div><pre>{{ $json.name }}
-{{ $json.email }}
-{{ $json.data.price }}</pre><div class="code-desc">الوصول لحقل في البيانات</div></div>
-            <div class="code-block"><div class="code-title">التاريخ والوقت</div><pre>{{ $now.toISO() }}
-{{ $now.format('yyyy-MM-dd') }}
-{{ $today }}</pre><div class="code-desc">التاريخ والوقت الحالي</div></div>
-            <div class="code-block"><div class="code-title">من عقدة سابقة</div><pre>{{ $('Sheets').item.json.name }}
-{{ $('Webhook').first().json.id }}</pre><div class="code-desc">بيانات أي عقدة بالاسم</div></div>
-            <div class="code-block"><div class="code-title">عمليات بسيطة</div><pre>{{ $json.price * 1.15 }}
-{{ $json.name.toUpperCase() }}
-{{ $json.items.length }}</pre><div class="code-desc">حسابات وتحويلات</div></div>
-          </div>
-          <div class="source-ref"><i class="fas fa-book"></i><span>المصدر: <a href="https://docs.n8n.io/code/expressions/" target="_blank">docs.n8n.io/code/expressions</a></span></div>
-        </div>
-      </section>
-
-      <section class="lesson" id="lesson-credentials">
-        <div class="lesson-hero gradient-teal">
-          <div class="lesson-hero-icon"><i class="fas fa-key"></i></div>
-          <div><div class="lesson-number">الدرس الثامن</div><h1>الاعتمادات (Credentials)</h1><p>ربط التطبيقات الخارجية بشكل آمن</p></div>
-        </div>
-        <div class="lesson-body">
-          <h2><i class="fas fa-shield-alt"></i> ما هي الاعتمادات؟</h2>
-          <div class="definition-box">
-            <blockquote>الاعتمادات (Credentials) هي معلومات المصادقة (API Keys، OAuth) التي تحتاجها n8n للتواصل مع التطبيقات الخارجية بشكل آمن.</blockquote>
-          </div>
-          <div class="lesson-image">
-            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=900&q=80" alt="Security and API Keys" onerror="this.parentElement.style.display='none'" />
-            <div class="lesson-image-caption">الأمان الرقمي — حماية بيانات الاعتماد في n8n</div>
-          </div>
-          <h2><i class="fas fa-layer-group"></i> أنواع الاعتمادات</h2>
-          <div class="cards-grid">
-            <div class="info-card"><div class="info-card-icon orange"><i class="fas fa-key"></i></div><h4>API Key</h4><p>مفتاح فريد لخدمة خارجية.</p><code>OpenAI، Weather</code></div>
-            <div class="info-card"><div class="info-card-icon blue"><i class="fas fa-user-shield"></i></div><h4>OAuth2</h4><p>تسجيل دخول آمن للخدمات الكبيرة.</p><code>Google Sheets، Gmail</code></div>
-            <div class="info-card"><div class="info-card-icon green"><i class="fas fa-lock"></i></div><h4>Username/Password</h4><p>بيانات دخول تقليدية.</p><code>Email SMTP، SSH</code></div>
-          </div>
-          <h2><i class="fas fa-plus-circle"></i> كيف تضيف Credential؟</h2>
-          <div class="steps-list">
-            <div class="step-item"><div class="step-badge">1</div><span>افتح قائمة <strong>Credentials</strong> من الشريط الجانبي في n8n</span></div>
-            <div class="step-item"><div class="step-badge">2</div><span>اضغط <strong>"Add Credential"</strong> وابحث عن التطبيق</span></div>
-            <div class="step-item"><div class="step-badge">3</div><span>أدخل المعلومات المطلوبة واضغط <strong>"Save"</strong></span></div>
-            <div class="step-item"><div class="step-badge">4</div><span>اختر هذا الاعتماد من أي عقدة تطلبه</span></div>
-          </div>
-          <div class="warning-box"><i class="fas fa-exclamation-triangle"></i><p><strong>تنبيه:</strong> لا تشارك ملفات n8n التي تحتوي على Credentials. استخدم Environment Variables في الإنتاج.</p></div>
-          <div class="source-ref"><i class="fas fa-book"></i><span>المصدر: <a href="https://docs.n8n.io/credentials/" target="_blank">docs.n8n.io/credentials</a></span></div>
-        </div>
-      </section>
-
-      <section class="lesson" id="lesson-ai-overview">
-        <div class="lesson-hero gradient-ai">
-          <div class="lesson-hero-icon"><i class="fas fa-brain"></i></div>
-          <div><div class="lesson-number">الدرس التاسع</div><h1>الذكاء الاصطناعي في n8n</h1><p>كيف يتكامل AI مع سير العمل لبناء تطبيقات ذكية</p></div>
-        </div>
-        <div class="lesson-body">
-          <h2><i class="fas fa-brain"></i> AI في n8n — نظرة عامة</h2>
-          <div class="lesson-image">
-            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=80" alt="AI abstract" onerror="this.parentElement.style.display='none'" />
-            <div class="lesson-image-caption">الذكاء الاصطناعي التوليدي — قوة جديدة في يدك</div>
-          </div>
-          <div class="summary-card">
-            <h3><i class="fas fa-star"></i> ما الجديد في n8n AI؟</h3>
-            <p>n8n يتيح بناء <strong>وكلاء ذكاء اصطناعي حقيقيين</strong> يفكرون ويخططون ويستخدمون أدوات ويتذكرون المحادثات.</p>
-          </div>
-          <h2><i class="fas fa-cubes"></i> مكونات AI في n8n</h2>
-          <div class="ai-components">
-            <div class="ai-comp"><div class="ai-comp-icon model"><i class="fas fa-brain"></i></div><div><h4>نموذج اللغة (Chat Model)</h4><p>العقل المفكر — يمكن ربط GPT-4، Claude، Gemini، Mistral.</p><div class="type-examples"><span class="tag purple">OpenAI GPT-4</span><span class="tag purple">Claude 3</span><span class="tag purple">Gemini</span></div></div></div>
-            <div class="ai-comp"><div class="ai-comp-icon memory"><i class="fas fa-memory"></i></div><div><h4>الذاكرة (Memory)</h4><p>تتيح للوكيل تذكر المحادثات السابقة.</p><div class="type-examples"><span class="tag green">Simple Memory</span><span class="tag green">Buffer Memory</span></div></div></div>
-            <div class="ai-comp"><div class="ai-comp-icon tools"><i class="fas fa-tools"></i></div><div><h4>الأدوات (Tools)</h4><p>تمنح الوكيل قدرة على التصرف — بحث، قراءة، إرسال.</p><div class="type-examples"><span class="tag orange">Web Search</span><span class="tag orange">HTTP Request</span><span class="tag orange">Google Sheets</span></div></div></div>
-          </div>
-          <div class="source-ref"><i class="fas fa-book"></i><span>المصدر: <a href="https://docs.n8n.io/advanced-ai/" target="_blank">docs.n8n.io/advanced-ai</a></span></div>
-        </div>
-      </section>
-
-      <section class="lesson" id="lesson-ai-agent">
-        <div class="lesson-hero gradient-purple">
-          <div class="lesson-hero-icon"><i class="fas fa-robot"></i></div>
-          <div><div class="lesson-number">الدرس العاشر</div><h1>AI Agent Node</h1><p>العقدة المحورية لبناء وكلاء الذكاء الاصطناعي في n8n</p></div>
-        </div>
-        <div class="lesson-body">
-          <h2><i class="fas fa-robot"></i> ما هو AI Agent Node؟</h2>
-          <div class="definition-box">
-            <blockquote>عقدة AI Agent تحوّل نموذج LLM عادي إلى وكيل ذكي قادر على فهم الطلبات والتخطيط للخطوات واستخدام الأدوات.</blockquote>
-          </div>
-          <h2><i class="fas fa-network-wired"></i> بنية وكيل AI</h2>
-          <div class="agent-structure">
-            <div class="agent-core"><i class="fas fa-robot"></i> AI Agent Node</div>
-            <div class="agent-connections">
-              <div class="agent-conn model"><div class="conn-line"></div><div class="conn-box"><i class="fas fa-brain"></i> Chat Model (GPT-4, Claude) <span class="required">مطلوب</span></div></div>
-              <div class="agent-conn memory"><div class="conn-line"></div><div class="conn-box"><i class="fas fa-memory"></i> Memory <span class="optional">اختياري</span></div></div>
-              <div class="agent-conn tool"><div class="conn-line"></div><div class="conn-box"><i class="fas fa-tools"></i> Tools <span class="optional">اختياري</span></div></div>
-            </div>
-          </div>
-          <h2><i class="fas fa-sliders-h"></i> الإعدادات الرئيسية</h2>
-          <div class="options-list">
-            <div class="option-item"><div class="option-key">System Message</div><div class="option-val">تعريف شخصية الوكيل ودوره</div></div>
-            <div class="option-item"><div class="option-key">Max Iterations</div><div class="option-val">الحد الأقصى لعدد الخطوات (افتراضي: 10)</div></div>
-            <div class="option-item"><div class="option-key">Prompt</div><div class="option-val">الرسالة المرسلة للوكيل — ديناميكية</div></div>
-          </div>
-          <div class="tip-box"><i class="fas fa-lightbulb"></i><p><strong>نصيحة:</strong> ابدأ دائماً بـ System Message واضح ومحدد.</p></div>
-          <div class="source-ref"><i class="fas fa-book"></i><span>المصدر: <a href="https://docs.n8n.io/advanced-ai/ai-agent/" target="_blank">docs.n8n.io/advanced-ai/ai-agent</a></span></div>
-        </div>
-      </section>
-
-      <section class="lesson" id="lesson-ai-build">
-        <div class="lesson-hero gradient-ai">
-          <div class="lesson-hero-icon"><i class="fas fa-hammer"></i></div>
-          <div><div class="lesson-number">الدرس الحادي عشر</div><h1>بناء وكيل AI من الصفر</h1><p>دليل عملي خطوة بخطوة لبناء أول وكيل ذكاء اصطناعي لك</p></div>
-        </div>
-        <div class="lesson-body">
-          <h2><i class="fas fa-bullseye"></i> الهدف</h2>
-          <div class="goal-box">
-            <p>في نهاية هذا الدرس ستبني وكيل AI عربي متكامل يستطيع:</p>
-            <ul>
-              <li>الرد على الأسئلة باللغة العربية</li>
-              <li>تذكر المحادثات السابقة</li>
-              <li>الاستجابة بشخصية مخصصة</li>
-            </ul>
-          </div>
-          <div class="lesson-image">
-            <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=900&q=80" alt="AI Agent Building" onerror="this.parentElement.style.display='none'" />
-            <div class="lesson-image-caption">بناء وكيل AI — من الفكرة إلى التنفيذ</div>
-          </div>
-          <h2><i class="fas fa-list-ol"></i> الخطوات التفصيلية</h2>
-          <div class="node-workflow-steps">
-            <div class="node-step-row"><div class="node-step-body"><div class="node-step-node"><div class="node-step-icon s-trigger"><i class="fas fa-plus"></i></div><div class="node-step-type">Start</div></div><div class="node-step-content"><h4>1 — إنشاء Workflow جديد</h4><p>افتح n8n ← اضغط <strong>"New Workflow"</strong> ← أعطه اسماً</p></div></div></div>
-            <div class="node-step-row"><div class="node-step-body"><div class="node-step-node"><div class="node-step-icon s-trigger"><i class="fas fa-comments"></i></div><div class="node-step-type">Chat</div></div><div class="node-step-content"><h4>2 — إضافة Chat Trigger</h4><p>ابحث عن <strong>"Chat Trigger"</strong> وأضفه — يفعّل واجهة الشات</p></div></div></div>
-            <div class="node-step-row"><div class="node-step-body"><div class="node-step-node"><div class="node-step-icon s-ai"><i class="fas fa-robot"></i></div><div class="node-step-type">AI</div></div><div class="node-step-content"><h4>3 — إضافة AI Agent Node</h4><p>أضف عقدة <strong>"AI Agent"</strong> ووصّلها بـ Chat Trigger</p></div></div></div>
-            <div class="node-step-row"><div class="node-step-body"><div class="node-step-node"><div class="node-step-icon s-action"><i class="fas fa-microchip"></i></div><div class="node-step-type">Model</div></div><div class="node-step-content"><h4>4 — ربط نموذج اللغة (OpenAI)</h4><p>في AI Agent اضغط <strong>"Add Language Model"</strong> ← اختر <strong>"OpenAI Chat Model"</strong></p></div></div></div>
-            <div class="node-step-row"><div class="node-step-body"><div class="node-step-node"><div class="node-step-icon s-action"><i class="fas fa-key"></i></div><div class="node-step-type">Auth</div></div><div class="node-step-content"><h4>5 — إضافة اعتماد OpenAI</h4><p>أضف <strong>Credential</strong> جديد وأدخل <code>OpenAI API Key</code></p><span class="tip-inline">من platform.openai.com</span></div></div></div>
-            <div class="node-step-row"><div class="node-step-body"><div class="node-step-node"><div class="node-step-icon s-ai"><i class="fas fa-sliders-h"></i></div><div class="node-step-type">Config</div></div><div class="node-step-content"><h4>6 — تخصيص الشخصية</h4><p>في AI Agent ← <strong>System Message</strong>: <code>"أنت مساعد تقني. ردودك دائماً باللغة العربية."</code></p></div></div></div>
-            <div class="node-step-row"><div class="node-step-body"><div class="node-step-node"><div class="node-step-icon s-memory"><i class="fas fa-memory"></i></div><div class="node-step-type">Memory</div></div><div class="node-step-content"><h4>7 — إضافة الذاكرة</h4><p>في AI Agent اضغط <strong>"Add Memory"</strong> ← اختر <strong>"Simple Memory"</strong></p><span class="tip-inline">الوكيل سيتذكر المحادثة!</span></div></div></div>
-            <div class="node-step-row"><div class="node-step-body" style="border-color:var(--success)"><div class="node-step-node"><div class="node-step-icon s-output"><i class="fas fa-check"></i></div><div class="node-step-type">Done</div></div><div class="node-step-content"><h4>8 — حفظ وتفعيل</h4><p>اضغط <strong>"Save"</strong> ثم <strong>"Activate"</strong> — مبروك! وكيلك جاهز 🎉</p></div></div></div>
-          </div>
-          <div class="source-ref"><i class="fas fa-book"></i><span>المصدر: <a href="https://docs.n8n.io/advanced-ai/intro-tutorial/" target="_blank">docs.n8n.io/advanced-ai/intro-tutorial</a></span></div>
-        </div>
-      </section>
-
-      <section class="lesson" id="lesson-live-examples">
-        <div class="lesson-hero gradient-live">
-          <div class="lesson-hero-icon"><i class="fas fa-flask"></i></div>
-          <div><div class="lesson-number">الدرس التطبيقي</div><h1>أمثلة حية تفاعلية</h1><p>سير عمل حقيقية خطوة بخطوة — اصنعها بنفسك في n8n</p></div>
-        </div>
-        <div class="lesson-body">
-          <div class="live-tabs">
-            <button class="live-tab active" onclick="switchExample(this,'ex1')"><i class="fas fa-file-alt"></i> مثال 1 — Form → Sheets</button>
-            <button class="live-tab" onclick="switchExample(this,'ex2')"><i class="fas fa-robot"></i> مثال 2 — تحليل بـ AI</button>
-          </div>
-
-          <!-- EX1 -->
-          <div class="live-example active" id="ex1">
-            <div class="live-ex-header">
-              <div class="live-ex-badge">سير عمل 1</div>
-              <h2>استقبال بيانات من نموذج وحفظها في Google Sheets</h2>
-              <p class="live-ex-desc">عند إرسال بيانات عبر نموذج n8n، تُسجَّل تلقائياً في Google Sheets.</p>
-            </div>
-            <div class="n8n-screenshot">
-              <div class="n8n-screenshot-bar"><span class="dot dot-red"></span><span class="dot dot-yel"></span><span class="dot dot-grn"></span><span>n8n Canvas — Form → Google Sheets</span></div>
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80" alt="Workflow Dashboard" onerror="this.parentElement.innerHTML='<div class=\'n8n-img-fallback\'><i class=\'fas fa-file-alt\'></i><p>Form → Google Sheets</p></div>'" />
-            </div>
-            <h3 class="canvas-title"><i class="fas fa-project-diagram"></i> لوحة سير العمل</h3>
-            <div class="n8n-canvas" id="canvas1">
-              <div class="canvas-node" id="cn1-1" onclick="activateStep('ex1',1)"><div class="canvas-node-inner trigger-node"><div class="cn-port cn-port-out"></div><span class="cn-badge badge-trigger">Trigger</span><div class="cn-icon"><i class="fas fa-wpforms"></i></div><div class="cn-name">Form Trigger</div><div class="cn-sub">يستقبل النموذج</div></div></div>
-              <div class="canvas-arrow"><div class="ca-line"></div><div class="ca-head"></div></div>
-              <div class="canvas-node" id="cn1-2" onclick="activateStep('ex1',2)"><div class="canvas-node-inner logic-node"><div class="cn-port cn-port-in"></div><div class="cn-port cn-port-out"></div><span class="cn-badge badge-logic">Logic</span><div class="cn-icon"><i class="fas fa-filter"></i></div><div class="cn-name">Set</div><div class="cn-sub">تنظيف البيانات</div></div></div>
-              <div class="canvas-arrow"><div class="ca-line"></div><div class="ca-head"></div></div>
-              <div class="canvas-node" id="cn1-3" onclick="activateStep('ex1',3)"><div class="canvas-node-inner action-node"><div class="cn-port cn-port-in"></div><div class="cn-port cn-port-out"></div><span class="cn-badge badge-action">Action</span><div class="cn-icon"><i class="fas fa-table"></i></div><div class="cn-name">Google Sheets</div><div class="cn-sub">إضافة صف</div></div></div>
-              <div class="canvas-arrow"><div class="ca-line"></div><div class="ca-head"></div></div>
-              <div class="canvas-node" id="cn1-4" onclick="activateStep('ex1',4)"><div class="canvas-node-inner output-node"><div class="cn-port cn-port-in"></div><span class="cn-badge badge-output">Output</span><div class="cn-icon"><i class="fas fa-check-circle"></i></div><div class="cn-name">Respond</div><div class="cn-sub">تأكيد</div></div></div>
-            </div>
-            <div class="live-steps-panel" id="steps-ex1">
-              <div class="live-step-item active" data-step="1">
-                <div class="lsi-header" onclick="toggleStep('ex1',1)"><div class="lsi-node trigger-node"><i class="fas fa-wpforms"></i></div><div class="lsi-info"><span class="lsi-num">الخطوة 1</span><strong>n8n Form Trigger</strong></div><div class="lsi-chevron"><i class="fas fa-chevron-down"></i></div></div>
-                <div class="lsi-body open">
-                  <div class="lsi-instructions"><p>أضف <strong>n8n Form Trigger</strong> وأضف الحقول المطلوبة.</p>
-                  <div class="lsi-config-box"><div class="lsi-config-title"><i class="fas fa-cog"></i> الإعدادات</div><div class="lsi-config-row"><span>Form Title</span><code>استمارة التسجيل</code></div><div class="lsi-config-row"><span>Field 1</span><code>الاسم — Text</code></div><div class="lsi-config-row"><span>Field 2</span><code>البريد — Email</code></div></div>
-                  <div class="lsi-output"><div class="lsi-output-title">المخرجات</div><pre class="lsi-json">{ "name": "محمد", "email": "m@example.com" }</pre></div></div>
-                  <div class="lsi-nav"><button class="lsi-btn-next" onclick="nextStep('ex1',2)">التالي <i class="fas fa-chevron-left"></i></button></div>
-                </div>
-              </div>
-              <div class="live-step-item" data-step="2">
-                <div class="lsi-header" onclick="toggleStep('ex1',2)"><div class="lsi-node logic-node"><i class="fas fa-filter"></i></div><div class="lsi-info"><span class="lsi-num">الخطوة 2</span><strong>Set Node — تنظيف البيانات</strong></div><div class="lsi-chevron"><i class="fas fa-chevron-down"></i></div></div>
-                <div class="lsi-body">
-                  <div class="lsi-instructions"><p>أضف <strong>Set</strong> لإعادة تسمية الحقول وإضافة التاريخ.</p>
-                  <div class="lsi-config-box"><div class="lsi-config-title"><i class="fas fa-cog"></i> الإعدادات</div><div class="lsi-config-row"><span>fullName</span><code>{{ $json.name }}</code></div><div class="lsi-config-row"><span>submittedAt</span><code>{{ $now.toISO() }}</code></div></div></div>
-                  <div class="lsi-nav"><button class="lsi-btn-prev" onclick="nextStep('ex1',1)"><i class="fas fa-chevron-right"></i> السابق</button><button class="lsi-btn-next" onclick="nextStep('ex1',3)">التالي <i class="fas fa-chevron-left"></i></button></div>
-                </div>
-              </div>
-              <div class="live-step-item" data-step="3">
-                <div class="lsi-header" onclick="toggleStep('ex1',3)"><div class="lsi-node action-node"><i class="fas fa-table"></i></div><div class="lsi-info"><span class="lsi-num">الخطوة 3</span><strong>Google Sheets — إضافة صف</strong></div><div class="lsi-chevron"><i class="fas fa-chevron-down"></i></div></div>
-                <div class="lsi-body">
-                  <div class="lsi-instructions"><p>أضف <strong>Google Sheets</strong> لتسجيل كل إرسال.</p>
-                  <div class="lsi-config-box"><div class="lsi-config-title"><i class="fas fa-cog"></i> الإعدادات</div><div class="lsi-config-row"><span>Operation</span><code>Append Row</code></div><div class="lsi-config-row"><span>Column A</span><code>{{ $json.fullName }}</code></div></div>
-                  <div class="lsi-tip"><i class="fas fa-lightbulb"></i> تأكد من إضافة Google Sheets Credential أولاً</div></div>
-                  <div class="lsi-nav"><button class="lsi-btn-prev" onclick="nextStep('ex1',2)"><i class="fas fa-chevron-right"></i> السابق</button><button class="lsi-btn-next" onclick="nextStep('ex1',4)">التالي <i class="fas fa-chevron-left"></i></button></div>
-                </div>
-              </div>
-              <div class="live-step-item" data-step="4">
-                <div class="lsi-header" onclick="toggleStep('ex1',4)"><div class="lsi-node output-node"><i class="fas fa-check-circle"></i></div><div class="lsi-info"><span class="lsi-num">الخطوة 4</span><strong>Respond — تأكيد النجاح</strong></div><div class="lsi-chevron"><i class="fas fa-chevron-down"></i></div></div>
-                <div class="lsi-body">
-                  <div class="lsi-instructions"><p>أضف <strong>Respond to Webhook</strong> لإرسال رسالة تأكيد.</p>
-                  <div class="lsi-config-box"><div class="lsi-config-title"><i class="fas fa-cog"></i> الإعدادات</div><div class="lsi-config-row"><span>Response</span><code>شكراً! تم التسجيل ✅</code></div></div>
-                  <div class="lsi-result-box"><div class="lsi-result-icon">🎉</div><div><strong>سير العمل مكتمل!</strong><p>كل إرسال يُسجَّل تلقائياً في Google Sheets.</p></div></div></div>
-                  <div class="lsi-nav"><button class="lsi-btn-prev" onclick="nextStep('ex1',3)"><i class="fas fa-chevron-right"></i> السابق</button><button class="lsi-btn-next" onclick="switchExample(document.querySelectorAll('.live-tab')[1],'ex2')">المثال 2 <i class="fas fa-chevron-left"></i></button></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- EX2 -->
-          <div class="live-example" id="ex2">
-            <div class="live-ex-header">
-              <div class="live-ex-badge badge-ai-ex">ذكاء اصطناعي</div>
-              <h2>تحليل جدول البيانات بالذكاء الاصطناعي</h2>
-              <p class="live-ex-desc">قراءة البيانات من Google Sheets وتحليلها بـ GPT وإرسال التقرير تلقائياً كل يوم.</p>
-            </div>
-            <div class="n8n-screenshot">
-              <div class="n8n-screenshot-bar"><span class="dot dot-red"></span><span class="dot dot-yel"></span><span class="dot dot-grn"></span><span>n8n Canvas — AI Analysis</span></div>
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80" alt="Data Analysis" onerror="this.parentElement.innerHTML='<div class=\'n8n-img-fallback\'><i class=\'fas fa-chart-bar\'></i><p>AI Data Analysis Workflow</p></div>'" />
-            </div>
-            <h3 class="canvas-title"><i class="fas fa-project-diagram"></i> لوحة سير العمل</h3>
-            <div class="n8n-canvas" id="canvas2">
-              <div class="canvas-node" id="cn2-1" onclick="activateStep('ex2',1)"><div class="canvas-node-inner trigger-node"><div class="cn-port cn-port-out"></div><span class="cn-badge badge-trigger">Trigger</span><div class="cn-icon"><i class="fas fa-clock"></i></div><div class="cn-name">Schedule</div><div class="cn-sub">كل يوم 8 ص</div></div></div>
-              <div class="canvas-arrow"><div class="ca-line"></div><div class="ca-head"></div></div>
-              <div class="canvas-node" id="cn2-2" onclick="activateStep('ex2',2)"><div class="canvas-node-inner action-node"><div class="cn-port cn-port-in"></div><div class="cn-port cn-port-out"></div><span class="cn-badge badge-action">Action</span><div class="cn-icon"><i class="fas fa-table"></i></div><div class="cn-name">Google Sheets</div><div class="cn-sub">قراءة البيانات</div></div></div>
-              <div class="canvas-arrow"><div class="ca-line"></div><div class="ca-head"></div></div>
-              <div class="canvas-node" id="cn2-3" onclick="activateStep('ex2',3)"><div class="canvas-node-inner logic-node"><div class="cn-port cn-port-in"></div><div class="cn-port cn-port-out"></div><span class="cn-badge badge-logic">Logic</span><div class="cn-icon"><i class="fas fa-compress-arrows-alt"></i></div><div class="cn-name">Aggregate</div><div class="cn-sub">تجميع</div></div></div>
-              <div class="canvas-arrow"><div class="ca-line"></div><div class="ca-head"></div></div>
-              <div class="canvas-node" id="cn2-4" onclick="activateStep('ex2',4)"><div class="canvas-node-inner ai-node"><div class="cn-port cn-port-in"></div><div class="cn-port cn-port-out"></div><span class="cn-badge badge-ai">AI</span><div class="cn-icon"><i class="fas fa-robot"></i></div><div class="cn-name">OpenAI GPT</div><div class="cn-sub">تحليل</div></div></div>
-              <div class="canvas-arrow"><div class="ca-line"></div><div class="ca-head"></div></div>
-              <div class="canvas-node" id="cn2-5" onclick="activateStep('ex2',5)"><div class="canvas-node-inner output-node"><div class="cn-port cn-port-in"></div><span class="cn-badge badge-output">Output</span><div class="cn-icon"><i class="fas fa-envelope"></i></div><div class="cn-name">Send Email</div><div class="cn-sub">إرسال التقرير</div></div></div>
-            </div>
-            <div class="live-steps-panel" id="steps-ex2">
-              <div class="live-step-item active" data-step="1">
-                <div class="lsi-header" onclick="toggleStep('ex2',1)"><div class="lsi-node trigger-node"><i class="fas fa-clock"></i></div><div class="lsi-info"><span class="lsi-num">الخطوة 1</span><strong>Schedule Trigger — تشغيل يومي</strong></div><div class="lsi-chevron"><i class="fas fa-chevron-down"></i></div></div>
-                <div class="lsi-body open">
-                  <div class="lsi-instructions"><p>أضف <strong>Schedule Trigger</strong> للتشغيل التلقائي كل يوم.</p>
-                  <div class="lsi-config-box"><div class="lsi-config-title"><i class="fas fa-cog"></i> الإعدادات</div><div class="lsi-config-row"><span>Interval</span><code>Days</code></div><div class="lsi-config-row"><span>At Hour</span><code>8</code></div></div></div>
-                  <div class="lsi-nav"><button class="lsi-btn-next" onclick="nextStep('ex2',2)">التالي <i class="fas fa-chevron-left"></i></button></div>
-                </div>
-              </div>
-              <div class="live-step-item" data-step="2">
-                <div class="lsi-header" onclick="toggleStep('ex2',2)"><div class="lsi-node action-node"><i class="fas fa-table"></i></div><div class="lsi-info"><span class="lsi-num">الخطوة 2</span><strong>Google Sheets — قراءة البيانات</strong></div><div class="lsi-chevron"><i class="fas fa-chevron-down"></i></div></div>
-                <div class="lsi-body">
-                  <div class="lsi-instructions"><p>أضف <strong>Google Sheets</strong> لقراءة كامل بيانات الجدول.</p>
-                  <div class="lsi-config-box"><div class="lsi-config-title"><i class="fas fa-cog"></i> الإعدادات</div><div class="lsi-config-row"><span>Operation</span><code>Get All Rows</code></div><div class="lsi-config-row"><span>Return All</span><code>✔ مفعّل</code></div></div></div>
-                  <div class="lsi-nav"><button class="lsi-btn-prev" onclick="nextStep('ex2',1)"><i class="fas fa-chevron-right"></i> السابق</button><button class="lsi-btn-next" onclick="nextStep('ex2',3)">التالي <i class="fas fa-chevron-left"></i></button></div>
-                </div>
-              </div>
-              <div class="live-step-item" data-step="3">
-                <div class="lsi-header" onclick="toggleStep('ex2',3)"><div class="lsi-node logic-node"><i class="fas fa-compress-arrows-alt"></i></div><div class="lsi-info"><span class="lsi-num">الخطوة 3</span><strong>Aggregate — تجميع الصفوف</strong></div><div class="lsi-chevron"><i class="fas fa-chevron-down"></i></div></div>
-                <div class="lsi-body">
-                  <div class="lsi-instructions"><p><strong>Aggregate</strong> تجمع كل الصفوف في قيمة واحدة لإرسالها لـ GPT.</p>
-                  <div class="lsi-config-box"><div class="lsi-config-title"><i class="fas fa-cog"></i> الإعدادات</div><div class="lsi-config-row"><span>Aggregate</span><code>All Item Data (Into a Single List)</code></div></div>
-                  <div class="lsi-tip"><i class="fas fa-lightbulb"></i> يحوّل مصفوفة الصفوف إلى نص JSON يمكن إرساله لـ GPT</div></div>
-                  <div class="lsi-nav"><button class="lsi-btn-prev" onclick="nextStep('ex2',2)"><i class="fas fa-chevron-right"></i> السابق</button><button class="lsi-btn-next" onclick="nextStep('ex2',4)">التالي <i class="fas fa-chevron-left"></i></button></div>
-                </div>
-              </div>
-              <div class="live-step-item" data-step="4">
-                <div class="lsi-header" onclick="toggleStep('ex2',4)"><div class="lsi-node ai-node"><i class="fas fa-robot"></i></div><div class="lsi-info"><span class="lsi-num">الخطوة 4</span><strong>OpenAI GPT — تحليل البيانات</strong></div><div class="lsi-chevron"><i class="fas fa-chevron-down"></i></div></div>
-                <div class="lsi-body">
-                  <div class="lsi-instructions"><p>أضف <strong>OpenAI</strong> وأرسل لها البيانات مع prompt للتحليل.</p>
-                  <div class="lsi-config-box"><div class="lsi-config-title"><i class="fas fa-cog"></i> الإعدادات</div><div class="lsi-config-row"><span>Model</span><code>gpt-4o-mini</code></div><div class="lsi-config-row"><span>System</span><code>أنت محلل بيانات خبير. ردودك بالعربية.</code></div></div>
-                  <div class="lsi-output"><div class="lsi-output-title">مثال المخرجات</div><pre class="lsi-json">• إجمالي المسجلين: 47
-• أكثر يوم: الأحد (23%)
-• توصية: زيادة التسويق أيام الأحد</pre></div></div>
-                  <div class="lsi-nav"><button class="lsi-btn-prev" onclick="nextStep('ex2',3)"><i class="fas fa-chevron-right"></i> السابق</button><button class="lsi-btn-next" onclick="nextStep('ex2',5)">التالي <i class="fas fa-chevron-left"></i></button></div>
-                </div>
-              </div>
-              <div class="live-step-item" data-step="5">
-                <div class="lsi-header" onclick="toggleStep('ex2',5)"><div class="lsi-node output-node"><i class="fas fa-envelope"></i></div><div class="lsi-info"><span class="lsi-num">الخطوة 5</span><strong>Send Email — إرسال التقرير</strong></div><div class="lsi-chevron"><i class="fas fa-chevron-down"></i></div></div>
-                <div class="lsi-body">
-                  <div class="lsi-instructions"><p>أضف <strong>Send Email</strong> لإرسال نتائج التحليل تقريراً يومياً.</p>
-                  <div class="lsi-config-box"><div class="lsi-config-title"><i class="fas fa-cog"></i> الإعدادات</div><div class="lsi-config-row"><span>Subject</span><code>تقرير يومي</code></div><div class="lsi-config-row"><span>Body</span><code>{{ $('OpenAI').item.json.message.content }}</code></div></div>
-                  <div class="lsi-result-box"><div class="lsi-result-icon">🎉</div><div><strong>سير العمل مكتمل!</strong><p>كل يوم 8 ص يُحلَّل الجدول ويُرسَل تقرير تلقائياً.</p></div></div></div>
-                  <div class="lsi-nav"><button class="lsi-btn-prev" onclick="nextStep('ex2',4)"><i class="fas fa-chevron-right"></i> السابق</button></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="lesson" id="lesson-quiz">
-        <div class="lesson-hero gradient-green">
-          <div class="lesson-hero-icon"><i class="fas fa-graduation-cap"></i></div>
-          <div><div class="lesson-number">الاختبار</div><h1>اختبر معرفتك</h1><p>10 أسئلة لقياس مستواك في أساسيات n8n</p></div>
-        </div>
-        <div class="lesson-body">
-          <div id="quizContainer">
-            <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
-            <div class="quiz-progress-label"><span id="quizProgressLabel">السؤال 1 من 10</span><span id="quizScore">النتيجة: 0</span></div>
-            <div id="quizQuestions"></div>
-            <div class="quiz-controls">
-              <button class="btn-quiz-nav" id="quizPrevBtn" onclick="prevQuestion()" disabled><i class="fas fa-chevron-right"></i> السابق</button>
-              <button class="btn-quiz-nav primary" id="quizNextBtn" onclick="nextQuestion()">التالي <i class="fas fa-chevron-left"></i></button>
-            </div>
-          </div>
-          <div id="quizResult" style="display:none;">
-            <div class="result-card" id="resultCard">
-              <div class="result-icon" id="resultIcon"></div>
-              <h2 id="resultTitle"></h2>
-              <p id="resultMessage"></p>
-              <div class="result-score"><span id="resultScore"></span></div>
-              <button class="btn-restart" onclick="restartQuiz()"><i class="fas fa-redo"></i> إعادة الاختبار</button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
+<div id="tab-automation" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-gear-six"></i> ما هي <span>الأتمتة؟</span></h2>
+  <p class="section-subtitle">الأتمتة هي جعل الآلات تؤدي المهام المتكررة بدلاً منك. فكّر بها كـ "مساعد لا يتعب ولا ينسى".</p>
+  <div class="info-grid">
+    <div class="info-card glass"><i class="ph-duotone ph-student"></i><h3>المثال الكلاسيكي</h3><p>عندما يملأ شخص نموذجاً على موقعك، تذهب البيانات تلقائياً لـ Google Sheets، ويُرسَل إيميل ترحيب، وتُضاف مهمة في Notion — <b>كل ذلك بدون أي تدخل منك.</b></p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-chart-line-up"></i><h3>لماذا الأتمتة؟</h3><p>الموظف يعمل 8 ساعات. الأتمتة تعمل <b>24 ساعة، 7 أيام</b>، بدون أخطاء، وبنفس الدقة في كل مرة. النتيجة: إنتاجية أعلى وتكاليف أقل.</p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-recycle"></i><h3>ما يمكن أتمتته</h3><p><b>إرسال إيميلات</b> · نسخ البيانات بين الأنظمة · <b>إشعارات Slack</b> · تقارير دورية · معالجة الملفات · <b>الردود التلقائية</b> على العملاء</p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-trophy"></i><h3>n8n مقابل البدائل</h3><p>Zapier وMake هي المنافسون، لكن n8n <b>مفتوح المصدر، قابل للاستضافة الذاتية</b>، ويدعم الكود المخصص — مما يمنحك تحكماً كاملاً بدون حدود.</p></div>
   </div>
 </div>
 
-<script src="js/main.js"></script>
+<div id="tab-n8n" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-lightning"></i> ما هو <span>n8n؟</span></h2>
+  <p class="section-subtitle">n8n هي منصة أتمتة سير العمل مفتوحة المصدر. تبني فيها "مصانع بيانات" بصرية تعمل تلقائياً.</p>
+  <div class="node-flow">
+    <div class="n-node"><div class="n-node-box trigger"><i class="ph-duotone ph-envelope-open n-node-icon"></i><div class="n-node-name">Gmail Trigger</div><div class="n-node-type">Trigger</div></div></div>
+    <div class="n-wire"><div class="n-wire-line"></div><div class="n-wire-arrow"></div></div>
+    <div class="n-node"><div class="n-node-box action"><i class="ph-duotone ph-brain n-node-icon"></i><div class="n-node-name">AI Summary</div><div class="n-node-type">Action</div></div></div>
+    <div class="n-wire"><div class="n-wire-line"></div><div class="n-wire-arrow"></div></div>
+    <div class="n-node"><div class="n-node-box output"><i class="ph-duotone ph-chat-circle n-node-icon"></i><div class="n-node-name">Slack Alert</div><div class="n-node-type">Output</div></div></div>
+  </div>
+  <div class="info-grid" style="margin-top:20px;">
+    <div class="info-card glass"><i class="ph-duotone ph-open-source-logo"></i><h3>مفتوح المصدر</h3><p>الكود متاح للجميع. يمكنك استضافته على سيرفرك الخاص، <b>بدون رسوم شهرية</b> لا نهاية لها.</p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-puzzle-piece"></i><h3>+400 تكامل</h3><p>Google · OpenAI · Slack · Airtable · GitHub · Telegram وغيرها الكثير. كل شيء <b>جاهز للتوصيل.</b></p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-code-block"></i><h3>No-Code + Code</h3><p>ابنِ بصرياً بالسحب والإفلات. وعندما تحتاج قوة أكبر، <b>أضف كود JavaScript أو Python.</b></p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-robot"></i><h3>AI Native</h3><p>مبني من الأساس لدعم وكلاء الذكاء الاصطناعي. <b>GPT-4، Claude، Gemini</b> كلها مدمجة مباشرة.</p></div>
+  </div>
+</div>
+
+<div id="tab-nodes" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-circles-four"></i> العقد <span>(Nodes)</span></h2>
+  <p class="section-subtitle">العقدة هي اللبنة الأساسية في n8n. كل عقدة تؤدي مهمة واحدة محددة. الـ Workflow = مجموعة عقد متصلة.</p>
+  <div class="cards-wrapper">
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="card-front"><i class="ph-duotone ph-play-circle"></i><h3>Trigger Node</h3><p>نقطة البداية — يبدأ سير العمل</p></div>
+      <div class="card-back"><h3>المحرّك الأول</h3><p>مثل زر التشغيل. يستجيب لحدث: <b>وصول إيميل، ضغطة زر، جدول زمني، Webhook.</b> كل workflow يبدأ بـ Trigger واحد.</p></div>
+    </div>
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="card-front"><i class="ph-duotone ph-arrows-left-right"></i><h3>Action Node</h3><p>المنفّذ — يقوم بعمل محدد</p></div>
+      <div class="card-back"><h3>المنفّذ الفعلي</h3><p>يرسل إيميل، يكتب في Spreadsheet، يستدعي API، <b>يعالج البيانات.</b> معظم العقد في الـ Workflow هي Action.</p></div>
+    </div>
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="card-front"><i class="ph-duotone ph-git-branch"></i><h3>Logic Node</h3><p>المفكّر — يتحكم في التدفق</p></div>
+      <div class="card-back"><h3>عقل الـ Workflow</h3><p>IF/Else · Switch · Merge · Filter. <b>يوجّه البيانات</b> بناءً على شروط. بدونها الـ Workflow يسير في خط مستقيم فقط.</p></div>
+    </div>
+  </div>
+</div>
+
+<div id="tab-connections" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-arrows-merge"></i> التوصيلات <span>(Connections)</span></h2>
+  <p class="section-subtitle">التوصيلات هي الأسلاك التي تربط العقد ببعضها وتنقل البيانات بينها. البيانات تتدفق من اليمين إلى اليسار.</p>
+  <div class="node-flow">
+    <div class="n-node"><div class="n-node-box trigger"><i class="ph-duotone ph-webhooks-logo n-node-icon"></i><div class="n-node-name">Webhook</div><div class="n-node-type">Trigger</div></div></div>
+    <div class="n-wire"><div class="n-wire-line"></div><div class="n-wire-arrow"></div></div>
+    <div class="n-node"><div class="n-node-box logic"><i class="ph-duotone ph-git-branch n-node-icon"></i><div class="n-node-name">IF Condition</div><div class="n-node-type">Logic</div></div></div>
+    <div class="n-wire"><div class="n-wire-line"></div><div class="n-wire-arrow"></div></div>
+    <div class="n-node"><div class="n-node-box action"><i class="ph-duotone ph-google-logo n-node-icon"></i><div class="n-node-name">Google Sheets</div><div class="n-node-type">Action</div></div></div>
+    <div class="n-wire"><div class="n-wire-line"></div><div class="n-wire-arrow"></div></div>
+    <div class="n-node"><div class="n-node-box output"><i class="ph-duotone ph-paper-plane-tilt n-node-icon"></i><div class="n-node-name">Send Email</div><div class="n-node-type">Output</div></div></div>
+  </div>
+  <div class="info-grid" style="margin-top:20px;">
+    <div class="info-card glass"><i class="ph-duotone ph-flow-arrow"></i><h3>كيف تتدفق البيانات</h3><p>كل عقدة تُخرج <b>JSON object</b> يحتوي على البيانات. العقدة التالية تستقبله وتعمل عليه. البيانات تتراكم وتتحول في كل خطوة.</p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-git-merge"></i><h3>التفرع والدمج</h3><p>يمكن لعقدة واحدة أن تُغذي <b>أكثر من عقدة</b> (تفرع)، أو أن تُدمج مسارات متعددة في مسار واحد (Merge Node).</p></div>
+  </div>
+</div>
+
+<div id="tab-triggers" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-play-circle"></i> المحفزات <span>(Triggers)</span></h2>
+  <p class="section-subtitle">المحفّز هو الحدث الذي يوقظ الـ Workflow. بدون محفّز، لا شيء يعمل تلقائياً.</p>
+  <div class="info-grid">
+    <div class="info-card glass"><i class="ph-duotone ph-timer"></i><h3>Schedule Trigger</h3><p>يعمل في أوقات محددة مسبقاً. مثل: <b>كل يوم الساعة 8 صباحاً</b>، أو كل ساعة، أو في أول يوم من كل شهر. مثالي للتقارير الدورية.</p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-webhooks-logo"></i><h3>Webhook Trigger</h3><p>يستقبل طلبات HTTP من تطبيقات خارجية. عندما يحدث شيء في تطبيق آخر <b>يرسل إشعاراً</b> لـ n8n فيبدأ الـ Workflow فوراً.</p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-envelope"></i><h3>Email Trigger</h3><p>يراقب صندوق البريد الوارد. عند وصول <b>إيميل جديد</b> يُشغّل الـ Workflow تلقائياً. مفيد لمعالجة الطلبات والاستفسارات.</p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-chat-circle-dots"></i><h3>Chat Trigger</h3><p>يستقبل رسائل من المستخدمين. يُستخدم لبناء <b>chatbots وواجهات دردشة</b> مرتبطة بـ AI Agent. الأساس لبناء المساعدين الذكيين.</p></div>
+  </div>
+</div>
+
+<div id="tab-expressions" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-code"></i> التعبيرات <span>(Expressions)</span></h2>
+  <p class="section-subtitle">التعبيرات تجعل الـ Workflow ديناميكياً. بدلاً من قيم ثابتة، تستخدم بيانات حقيقية من العقد السابقة.</p>
+  <div class="expr-demo">
+    <div class="expr-label">مثال: إرسال إيميل ترحيب بالاسم الحقيقي</div>
+    <div class="expr-code">مرحباً {{ $json.name }}، شكراً لتسجيلك!</div>
+    <div class="expr-arrow">↓ تُحوَّل إلى</div>
+    <div class="expr-result">مرحباً أحمد، شكراً لتسجيلك!</div>
+  </div>
+  <div class="steps-list" style="margin-top:24px;">
+    <div class="step-item"><div class="step-num">١</div><div class="step-body"><h4>الصيغة الأساسية</h4><p>كل تعبير يُكتب بين <code>{{ }}</code> — القوسين المعقوصين المزدوجين. أي شيء داخلهما يتم حساب قيمته ديناميكياً.</p></div></div>
+    <div class="step-item"><div class="step-num">٢</div><div class="step-body"><h4>الوصول لبيانات العقدة السابقة</h4><p>استخدم <code>$json.fieldName</code> للوصول لأي حقل. مثال: <code>$json.email</code> · <code>$json.price</code></p></div></div>
+    <div class="step-item"><div class="step-num">٣</div><div class="step-body"><h4>العمليات والتحويلات</h4><p>يمكنك كتابة JavaScript داخل التعبيرات: <code>{{ $json.price * 1.15 }}</code> أو <code>{{ $json.name.toUpperCase() }}</code></p></div></div>
+    <div class="step-item"><div class="step-num">٤</div><div class="step-body"><h4>التاريخ والوقت</h4><p>استخدم <code>{{ $now.toISO() }}</code> للتاريخ الحالي، أو <code>{{ $today }}</code> لتاريخ اليوم فقط.</p></div></div>
+  </div>
+</div>
+
+<div id="tab-credentials" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-key"></i> الاعتمادات <span>(Credentials)</span></h2>
+  <p class="section-subtitle">الاعتمادات هي مفاتيح الوصول الآمن للخدمات الخارجية. n8n يخزّنها مشفّرة ويستخدمها عند الحاجة.</p>
+  <div class="cards-wrapper">
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="card-front"><i class="ph-duotone ph-lock-key"></i><h3>API Key</h3><p>مفتاح سري يعرّفك للخدمة</p></div>
+      <div class="card-back"><h3>كيف تعمل</h3><p>مثل كلمة سر للتطبيقات. تحصل عليها من لوحة تحكم الخدمة وتضيفها لـ n8n <b>مرة واحدة فقط.</b></p></div>
+    </div>
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="card-front"><i class="ph-duotone ph-shield-check"></i><h3>OAuth2</h3><p>تفويض آمن بدون مشاركة كلمة السر</p></div>
+      <div class="card-back"><h3>الطريقة الحديثة</h3><p>تُستخدم مع Google وMicrosoft وSlack. تضغط "Connect" وتسجّل الدخول في المتصفح، <b>n8n يحصل على الصلاحية تلقائياً.</b></p></div>
+    </div>
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="card-front"><i class="ph-duotone ph-user-circle-gear"></i><h3>Basic Auth</h3><p>اسم مستخدم وكلمة مرور</p></div>
+      <div class="card-back"><h3>الطريقة الكلاسيكية</h3><p>للخدمات القديمة أو السيرفرات الخاصة. تضيف اسم المستخدم وكلمة المرور، <b>n8n يرسلها بشكل آمن.</b></p></div>
+    </div>
+  </div>
+</div>
+
+<div id="tab-ai" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-brain"></i> الذكاء الاصطناعي <span>في n8n</span></h2>
+  <p class="section-subtitle">n8n يدمج الذكاء الاصطناعي مباشرة في سير العمل. من الردود البسيطة إلى الوكلاء المستقلين القادرين على التخطيط والتنفيذ.</p>
+  <div class="info-grid">
+    <div class="info-card glass"><i class="ph-duotone ph-chat-circle-text"></i><h3>نماذج اللغة (LLMs)</h3><p>GPT-4 · Claude · Gemini · Llama. n8n يتصل بها عبر API ويستخدمها <b>لتلخيص وترجمة وتوليد المحتوى</b> داخل الـ Workflow.</p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-robot"></i><h3>وكلاء AI</h3><p>الوكيل لا يردّ فقط، بل <b>يفكّر ويختار الأدوات</b> المناسبة لإنجاز المهمة. يمكنه البحث في الويب، قراءة ملفات، كتابة في قواعد البيانات.</p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-memory"></i><h3>الذاكرة (Memory)</h3><p>تمكّن الوكيل من <b>تذكّر سياق المحادثة</b>. بدونها كل رسالة معزولة. مع الذاكرة يتذكر ما قيل قبله ويبني عليه.</p></div>
+    <div class="info-card glass"><i class="ph-duotone ph-wrench"></i><h3>الأدوات (Tools)</h3><p>كل أداة هي شيء يمكن للوكيل فعله: البحث، إرسال إيميل، قراءة Spreadsheet. <b>الوكيل يختار الأداة المناسبة</b> بنفسه.</p></div>
+  </div>
+</div>
+
+<div id="tab-agent" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-robot"></i> عقدة <span>AI Agent</span></h2>
+  <p class="section-subtitle">عقدة AI Agent هي قلب بناء الوكلاء في n8n. تحتاج إلى توصيل مكونات أساسية لكي تعمل بشكل صحيح.</p>
+  <div class="agent-box">
+    <div class="agent-core-box"><i class="ph-duotone ph-robot"></i> AI Agent Node — المحرّك المركزي</div>
+    <div class="agent-connections">
+      <div class="agent-conn"><div class="agent-line"></div><div class="agent-conn-box model"><i class="ph-duotone ph-brain"></i><span>Chat Model (GPT-4, Claude...)</span><span class="agent-badge badge-req">مطلوب</span></div></div>
+      <div class="agent-conn"><div class="agent-line"></div><div class="agent-conn-box memory"><i class="ph-duotone ph-memory"></i><span>Memory — تذكّر السياق</span><span class="agent-badge badge-opt">اختياري</span></div></div>
+      <div class="agent-conn"><div class="agent-line"></div><div class="agent-conn-box tool"><i class="ph-duotone ph-wrench"></i><span>Tools — أدوات التنفيذ</span><span class="agent-badge badge-opt">اختياري</span></div></div>
+    </div>
+  </div>
+  <div class="steps-list" style="margin-top:24px;">
+    <div class="step-item"><div class="step-num">١</div><div class="step-body"><h4>Chat Model — العقل</h4><p>النموذج اللغوي هو من "يفكّر". تربطه بالـ Agent عبر توصيل فرعي. يجب أن تضيف Credentials الخاصة بـ OpenAI أو Anthropic.</p></div></div>
+    <div class="step-item"><div class="step-num">٢</div><div class="step-body"><h4>System Prompt — الشخصية والتعليمات</h4><p>تكتب فيه شخصية الوكيل وحدوده وأسلوبه. مثال: <code>أنت مساعد خدمة عملاء محترف لشركة X، ترد باللغة العربية فقط.</code></p></div></div>
+    <div class="step-item"><div class="step-num">٣</div><div class="step-body"><h4>الأدوات — قدرات التنفيذ</h4><p>كل أداة تُضاف كـ sub-node: HTTP Request لاستدعاء APIs، Google Sheets للقراءة والكتابة، Code لتشغيل JavaScript مخصص.</p></div></div>
+  </div>
+</div>
+
+<div id="tab-build" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-hammer"></i> بناء وكيل AI <span>من الصفر</span></h2>
+  <p class="section-subtitle">دليل خطوة بخطوة لبناء مساعد دردشة ذكي يتذكر المحادثة ويرد بذكاء.</p>
+  <div class="steps-list">
+    <div class="step-item"><div class="step-num">١</div><div class="step-body"><h4>أضف Chat Trigger</h4><p>ابحث عن "Chat Trigger" في قائمة العقد وأضفه. هذه نقطة البداية التي تستقبل رسائل المستخدمين. اضغط "Test" لفتح نافذة الدردشة.</p></div></div>
+    <div class="step-item"><div class="step-num">٢</div><div class="step-body"><h4>أضف AI Agent Node</h4><p>اضغط "+" بعد الـ Trigger، ابحث عن "AI Agent"، أضفه. ستجد ثلاثة موصلات في الأسفل: Chat Model، Memory، Tools.</p></div></div>
+    <div class="step-item"><div class="step-num">٣</div><div class="step-body"><h4>اربط Chat Model</h4><p>من الموصل الأول، أضف "OpenAI Chat Model"، أضف Credentials الخاصة بـ OpenAI API Key، اختر نموذج <code>gpt-4o</code>.</p></div></div>
+    <div class="step-item"><div class="step-num">٤</div><div class="step-body"><h4>أضف الذاكرة</h4><p>من الموصل الثاني، أضف "Simple Memory". هذا يمكّن الوكيل من تذكّر آخر 10 رسائل في المحادثة تلقائياً.</p></div></div>
+    <div class="step-item"><div class="step-num">٥</div><div class="step-body"><h4>اكتب System Prompt</h4><p>في إعدادات AI Agent، أضف System Prompt يصف شخصية الوكيل ومهامه. كلما كان أكثر تفصيلاً كان الوكيل أدق.</p></div></div>
+    <div class="step-item"><div class="step-num">٦</div><div class="step-body"><h4>جرّب وأطلق!</h4><p>اضغط "Chat" في الـ Trigger لفتح نافذة الاختبار. تحدّث مع الوكيل، راقب كيف يفكّر ويرد. فعّل الـ Workflow عند الرضا.</p></div></div>
+  </div>
+</div>
+
+<div id="tab-examples" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-flask"></i> أمثلة حية <span>تفاعلية</span></h2>
+  <p class="section-subtitle">انقر على أي عقدة لترى تفاصيلها ومخرجاتها.</p>
+  <div class="live-demo">
+    <div class="live-demo-title"><div class="live-dot"></div> مثال ١: نموذج → Google Sheets + إيميل ترحيب</div>
+    <div class="node-flow" style="margin:0 0 8px;">
+      <div class="n-node" onclick="toggleStep('sx1')"><div class="n-node-box trigger"><i class="ph-duotone ph-monitor-play n-node-icon"></i><div class="n-node-name">Form Submit</div><div class="n-node-type">Trigger</div></div></div>
+      <div class="n-wire"><div class="n-wire-line"></div><div class="n-wire-arrow"></div></div>
+      <div class="n-node" onclick="toggleStep('sx2')"><div class="n-node-box action"><i class="ph-duotone ph-table n-node-icon"></i><div class="n-node-name">Google Sheets</div><div class="n-node-type">Action</div></div></div>
+      <div class="n-wire"><div class="n-wire-line"></div><div class="n-wire-arrow"></div></div>
+      <div class="n-node" onclick="toggleStep('sx3')"><div class="n-node-box output"><i class="ph-duotone ph-paper-plane-tilt n-node-icon"></i><div class="n-node-name">Send Email</div><div class="n-node-type">Output</div></div></div>
+    </div>
+    <div id="sx1" class="step-detail" style="display:none;margin-top:12px;padding:16px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:12px;"><h4 style="color:#fbbf24;margin-bottom:6px;"><i class="ph-duotone ph-monitor-play"></i> Form Submit Trigger</h4><p style="color:var(--text-muted);font-size:15px;line-height:1.7;">يستقبل بيانات النموذج. المخرج: <code style="background:rgba(245,158,11,0.12);color:#fbbf24;padding:2px 8px;border-radius:4px;">{"name":"أحمد","email":"ahmed@x.com"}</code></p></div>
+    <div id="sx2" class="step-detail" style="display:none;margin-top:12px;padding:16px;background:rgba(34,211,165,0.06);border:1px solid rgba(34,211,165,0.2);border-radius:12px;"><h4 style="color:#6ee7b7;margin-bottom:6px;"><i class="ph-duotone ph-table"></i> Google Sheets — Append Row</h4><p style="color:var(--text-muted);font-size:15px;line-height:1.7;">يضيف صفاً جديداً بالبيانات. يستخدم: <code style="background:rgba(34,211,165,0.1);color:#6ee7b7;padding:2px 8px;border-radius:4px;">{{ $json.name }}</code></p></div>
+    <div id="sx3" class="step-detail" style="display:none;margin-top:12px;padding:16px;background:rgba(225,37,51,0.06);border:1px solid rgba(225,37,51,0.2);border-radius:12px;"><h4 style="color:#ff8a95;margin-bottom:6px;"><i class="ph-duotone ph-paper-plane-tilt"></i> Send Email — ترحيب شخصي</h4><p style="color:var(--text-muted);font-size:15px;line-height:1.7;">يُرسل إيميل ترحيب باسم المسجّل: <code style="background:rgba(225,37,51,0.1);color:#ff8a95;padding:2px 8px;border-radius:4px;">مرحباً {{ $json.name }}!</code></p></div>
+  </div>
+  <div class="live-demo" style="margin-top:24px;">
+    <div class="live-demo-title"><div class="live-dot"></div> مثال ٢: وكيل AI للرد على الإيميلات</div>
+    <div class="node-flow" style="margin:0 0 8px;">
+      <div class="n-node" onclick="toggleStep('sy1')"><div class="n-node-box trigger"><i class="ph-duotone ph-envelope n-node-icon"></i><div class="n-node-name">Email Trigger</div><div class="n-node-type">Trigger</div></div></div>
+      <div class="n-wire"><div class="n-wire-line"></div><div class="n-wire-arrow"></div></div>
+      <div class="n-node" onclick="toggleStep('sy2')"><div class="n-node-box ai"><i class="ph-duotone ph-robot n-node-icon"></i><div class="n-node-name">AI Agent</div><div class="n-node-type">AI</div></div></div>
+      <div class="n-wire"><div class="n-wire-line"></div><div class="n-wire-arrow"></div></div>
+      <div class="n-node" onclick="toggleStep('sy3')"><div class="n-node-box logic"><i class="ph-duotone ph-git-branch n-node-icon"></i><div class="n-node-name">IF Urgent</div><div class="n-node-type">Logic</div></div></div>
+      <div class="n-wire"><div class="n-wire-line"></div><div class="n-wire-arrow"></div></div>
+      <div class="n-node" onclick="toggleStep('sy4')"><div class="n-node-box output"><i class="ph-duotone ph-chat-circle n-node-icon"></i><div class="n-node-name">Slack Alert</div><div class="n-node-type">Output</div></div></div>
+    </div>
+    <div id="sy1" class="step-detail" style="display:none;margin-top:12px;padding:16px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:12px;"><h4 style="color:#fbbf24;margin-bottom:6px;"><i class="ph-duotone ph-envelope"></i> Email Trigger</h4><p style="color:var(--text-muted);font-size:15px;line-height:1.7;">يراقب صندوق الوارد ويُشغّل الـ Workflow عند وصول إيميل جديد.</p></div>
+    <div id="sy2" class="step-detail" style="display:none;margin-top:12px;padding:16px;background:rgba(225,37,51,0.08);border:1px solid rgba(225,37,51,0.25);border-radius:12px;"><h4 style="color:#ff8a95;margin-bottom:6px;"><i class="ph-duotone ph-robot"></i> AI Agent — تحليل الإيميل</h4><p style="color:var(--text-muted);font-size:15px;line-height:1.7;">يقرأ الإيميل ويحدد: هل هو عاجل؟ ما نوعه؟ ويولّد ردّاً مقترحاً احترافياً.</p></div>
+    <div id="sy3" class="step-detail" style="display:none;margin-top:12px;padding:16px;background:rgba(167,139,250,0.06);border:1px solid rgba(167,139,250,0.2);border-radius:12px;"><h4 style="color:#c4b5fd;margin-bottom:6px;"><i class="ph-duotone ph-git-branch"></i> IF Condition</h4><p style="color:var(--text-muted);font-size:15px;line-height:1.7;">إذا صنّف الـ AI الإيميل "عاجل" يوجّهه لمسار التنبيه الفوري، وإلا يُرسل الرد التلقائي.</p></div>
+    <div id="sy4" class="step-detail" style="display:none;margin-top:12px;padding:16px;background:rgba(34,211,165,0.06);border:1px solid rgba(34,211,165,0.2);border-radius:12px;"><h4 style="color:#6ee7b7;margin-bottom:6px;"><i class="ph-duotone ph-chat-circle"></i> Slack Alert</h4><p style="color:var(--text-muted);font-size:15px;line-height:1.7;">يُرسل تنبيهاً فورياً لقناة Slack مع ملخص الإيميل والرد المقترح.</p></div>
+  </div>
+</div>
+
+<div id="tab-quiz" class="tab-content">
+  <h2 class="section-title"><i class="ph-duotone ph-graduation-cap"></i> اختبر <span>معرفتك</span></h2>
+  <p class="section-subtitle">١٠ أسئلة لاختبار ما تعلمته. انقر على إجابتك لترى النتيجة فوراً.</p>
+  <div class="quiz-wrapper">
+    <div id="quizMain">
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="qFill" style="width:10%"></div></div>
+      <div id="qBox"></div>
+      <div id="qFeedback" class="quiz-feedback"></div>
+      <div class="quiz-controls">
+        <button class="btn-quiz" id="qPrev" onclick="qPrev()" disabled><i class="ph-duotone ph-arrow-right"></i> السابق</button>
+        <span class="quiz-score" id="qScore">النتيجة: 0</span>
+        <button class="btn-quiz primary" id="qNext" onclick="qNext()">التالي <i class="ph-duotone ph-arrow-left"></i></button>
+      </div>
+    </div>
+    <div id="qResult" style="display:none;" class="quiz-result">
+      <div class="result-icon" id="qResIcon"></div>
+      <div class="result-score-big" id="qResScore"></div>
+      <h2 id="qResTitle"></h2>
+      <p id="qResMsg"></p>
+      <button class="btn-good" onclick="restartQuiz()"><i class="ph-duotone ph-arrow-counter-clockwise"></i> إعادة الاختبار</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== TAB SWITCHING =====
+function switchTab(id, btn) {
+  document.querySelectorAll(".tab-content").forEach(t => t.classList.remove("active"));
+  document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  if (btn) btn.classList.add("active");
+  window.location.hash = id;
+}
+
+// ===== FLIP CARDS =====
+function flipCard(card) {
+  document.querySelectorAll(".flip-card").forEach(c => { if (c !== card) c.classList.remove("flipped"); });
+  card.classList.toggle("flipped");
+}
+
+// ===== LIVE EXAMPLE STEP TOGGLE =====
+function toggleStep(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const isOpen = el.style.display === "block";
+  // close all step details in same example
+  const prefix = id.charAt(1); // 'x' or 'y'
+  document.querySelectorAll(".step-detail").forEach(s => {
+    if (s.id && s.id.charAt(1) === prefix) s.style.display = "none";
+  });
+  if (!isOpen) el.style.display = "block";
+}
+
+// ===== QUIZ =====
+const QS = [
+  {q:"ما هو n8n؟",opts:["متصفح ويب مفتوح المصدر","منصة أتمتة سير العمل مفتوحة المصدر","لغة برمجة جديدة","نظام تشغيل للسيرفرات"],c:1,fb:"n8n هي منصة أتمتة سير العمل مفتوحة المصدر تمكّنك من ربط التطبيقات وأتمتة المهام."},
+  {q:"ما هو تعريف Workflow في n8n؟",opts:["ملف نصي يحتوي على أكواد","مجموعة عقد متصلة لأتمتة عملية ما","قاعدة بيانات","واجهة مستخدم رسومية"],c:1,fb:"Workflow هو مجموعة من العقد المتصلة ببعضها لأتمتة عملية ما."},
+  {q:"ما اللبنة الأساسية في n8n؟",opts:["الملفات والمجلدات","الشاشات والنوافذ","العقد (Nodes)","المتغيرات والثوابت"],c:2,fb:"العقد (Nodes) هي اللبنات الأساسية في n8n. كل عقدة تؤدي مهمة محددة."},
+  {q:"ما الفرق بين Trigger Node وAction Node؟",opts:["لا يوجد فرق","Trigger يبدأ سير العمل، Action ينفّذ مهاماً داخله","Trigger أسرع من Action","Action يعمل فقط مع Google"],c:1,fb:"Trigger يبدأ سير العمل استجابةً لحدث، بينما Action ينفذ إجراءات محددة."},
+  {q:"ما صيغة التعبيرات في n8n؟",opts:["[[ ]]","## ##","{{ }}","<< >>"],c:2,fb:"التعبيرات في n8n تستخدم صيغة {{ }} — مثال: {{ $json.email }}"},
+  {q:"لماذا تُستخدم الاعتمادات (Credentials)؟",opts:["لتصميم واجهة المستخدم","لتحديد اسم الـ Workflow","لتوثيق الاتصال بالخدمات الخارجية بشكل آمن","لتحديد لون العقد"],c:2,fb:"الاعتمادات تخزّن معلومات التوثيق (API Keys) بشكل مشفّر."},
+  {q:"ما هو AI Agent في n8n؟",opts:["برنامج لتصميم المواقع","نظام مستقل يستقبل البيانات ويتخذ قرارات لتحقيق أهداف","أداة لضغط الملفات","خادم بريد إلكتروني"],c:1,fb:"AI Agent هو نظام مستقل يفكر ويخطط ويستخدم أدوات لإنجاز المهام."},
+  {q:"ما الذي يجب توصيله بعقدة AI Agent كحد أدنى؟",opts:["قاعدة بيانات فقط","نموذج لغوي (Chat Model)","خمس عقد","ملف CSS"],c:1,fb:"يجب توصيل Chat Model بعقدة AI Agent كشرط أساسي لعملها."},
+  {q:"ما وظيفة Memory في وكيل AI؟",opts:["تخزين ملفات الصور","تسريع المعالجة","تمكين الوكيل من تذكّر سياق المحادثة","حماية سير العمل"],c:2,fb:"الذاكرة تمكّن الوكيل من تذكّر ما قيل مسبقاً في المحادثة."},
+  {q:"ما أول عقدة تُضاف لبناء وكيل AI بالدردشة؟",opts:["Code Node","HTTP Request","Chat Trigger Node","Schedule Trigger"],c:2,fb:"يبدأ بناء وكيل AI بالدردشة بإضافة Chat Trigger كنقطة البداية."}
+];
+let qIdx=0, qScore=0, qAns=new Array(QS.length).fill(null);
+
+function renderQ(){
+  const q=QS[qIdx];
+  document.getElementById("qBox").innerHTML=`
+    <div class="quiz-q-text"><span class="quiz-q-num">سؤال ${qIdx+1}</span> ${q.q}</div>
+    <div class="quiz-options">${q.opts.map((o,i)=>`
+      <div class="quiz-opt" id="qo${i}" onclick="pickOpt(${i})">
+        <div class="opt-letter">${["أ","ب","ج","د"][i]}</div><span>${o}</span>
+      </div>`).join("")}
+    </div>`;
+  const fb=document.getElementById("qFeedback");
+  fb.className="quiz-feedback";
+  fb.textContent="";
+  if(qAns[qIdx]!==null) restoreOpt();
+  document.getElementById("qFill").style.width=((qIdx+1)/QS.length*100)+"%";
+  document.getElementById("qPrev").disabled=qIdx===0;
+  const isLast=qIdx===QS.length-1;
+  document.getElementById("qNext").innerHTML=isLast?'<i class="ph-duotone ph-flag-checkered"></i> عرض النتيجة':'التالي <i class="ph-duotone ph-arrow-left"></i>';
+}
+
+function restoreOpt(){
+  const q=QS[qIdx]; const chosen=qAns[qIdx];
+  document.querySelectorAll(".quiz-opt").forEach((el,i)=>{
+    if(i===q.c) el.classList.add("correct");
+    if(i===chosen&&chosen!==q.c) el.classList.add("wrong");
+  });
+  const fb=document.getElementById("qFeedback");
+  fb.textContent=chosen===q.c?"✅ "+q.fb:"❌ الإجابة الصحيحة: "+q.fb;
+  fb.className="quiz-feedback show "+(chosen===q.c?"correct-fb":"wrong-fb");
+}
+
+function pickOpt(i){
+  if(qAns[qIdx]!==null) return;
+  const q=QS[qIdx]; qAns[qIdx]=i;
+  const isCorrect=i===q.c;
+  if(isCorrect) qScore++;
+  document.querySelectorAll(".quiz-opt").forEach((el,j)=>{
+    if(j===q.c) el.classList.add("correct");
+    if(j===i&&!isCorrect) el.classList.add("wrong");
+  });
+  const fb=document.getElementById("qFeedback");
+  fb.textContent=isCorrect?"✅ "+q.fb:"❌ الإجابة الصحيحة: "+q.fb;
+  fb.className="quiz-feedback show "+(isCorrect?"correct-fb":"wrong-fb");
+  document.getElementById("qScore").textContent="النتيجة: "+qScore;
+}
+
+function qPrev(){if(qIdx>0){qIdx--;renderQ();}}
+function qNext(){
+  if(qIdx<QS.length-1){qIdx++;renderQ();}
+  else showResult();
+}
+function showResult(){
+  document.getElementById("quizMain").style.display="none";
+  document.getElementById("qResult").style.display="block";
+  const pct=Math.round(qScore/QS.length*100);
+  let icon,title,msg;
+  if(pct>=90){icon="🏆";title="ممتاز! أنت خبير n8n!";msg="أحسنت! لقد أظهرت فهماً عميقاً. أنت جاهز لبناء سير عمل احترافية!";}
+  else if(pct>=70){icon="⭐";title="جيد جداً! استمر في التعلم!";msg="أداء رائع! راجع الدروس التي أخطأت فيها لتعزيز فهمك.";}
+  else if(pct>=50){icon="📚";title="جيد! تحتاج مزيداً من الممارسة";msg="بداية جيدة! نوصي بمراجعة الدروس مرة أخرى.";}
+  else{icon="💪";title="لا تستسلم! المعرفة تأتي بالتكرار";msg="كل خبير كان مبتدئاً يوماً ما! راجع الدروس من البداية.";}
+  document.getElementById("qResIcon").textContent=icon;
+  document.getElementById("qResTitle").textContent=title;
+  document.getElementById("qResMsg").textContent=msg;
+  document.getElementById("qResScore").textContent=qScore+" / "+QS.length+" ("+pct+"%)";
+}
+function restartQuiz(){
+  qIdx=0;qScore=0;qAns=new Array(QS.length).fill(null);
+  document.getElementById("qResult").style.display="none";
+  document.getElementById("quizMain").style.display="block";
+  document.getElementById("qScore").textContent="النتيجة: 0";
+  renderQ();
+}
+
+// ===== INIT =====
+document.addEventListener("DOMContentLoaded",()=>{
+  renderQ();
+  const hash=window.location.hash.replace("#","");
+  if(hash){
+    const btn=document.querySelector(`.nav-btn[onclick*="${hash}"]`);
+    switchTab(hash, btn);
+  }
+});
+</script>
+</div>
 </body>
 </html>
